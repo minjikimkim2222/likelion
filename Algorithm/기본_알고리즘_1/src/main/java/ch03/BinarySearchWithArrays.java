@@ -13,7 +13,7 @@ public class BinarySearchWithArrays {
         return idx;
     }
     public static void main(String[] args) {
-        
+
         int[] arr = {-9, 0, 1, 4, 12, 23};
         int key = 23;
 
