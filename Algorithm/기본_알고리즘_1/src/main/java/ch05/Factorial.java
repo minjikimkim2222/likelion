@@ -1,5 +1,7 @@
 package ch05;
 
+import java.util.Scanner;
+
 public class Factorial {
 
     public static int factorialRecursive(int n){
@@ -21,7 +23,13 @@ public class Factorial {
     }
 
     public static void main(String[] args) {
-        System.out.println(factorialRecursive(5));
-        System.out.println(factorialFor(5));
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("n을 입력해주세요");
+        int n = scanner.nextInt();
+
+        System.out.println(factorialRecursive(n));
+//        System.out.println(factorialRecursive(5));
+//        System.out.println(factorialFor(5));
     }
 }
