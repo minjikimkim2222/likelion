@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    font-family: 'Montserrat';
+}
+
+/* 브라우저별로 padding, margin 초기값이 다르기에, 초기화해주기*/
+body, h1, h2 {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    min-width: fit-content;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+    font-style:italic;
+}
+
+h2 {
+
+    font-size : 20px;
+    font-weight: lighter;
+    color: #282828;
+    border-bottom: 1px solid #ebebeb;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+
+}
+
+.name-text {
+    font-size: 17px;
+    color: #7c7c7c;
+    font-weight: bold;
+}
+
+.mainbox {
+    border: 1px solid #ebebeb;
+    width: 610px;
+
+    /* 박스 가운데 정렬*/
+    margin-left: auto;
+    margin-right: auto;
+
+    padding: 30px;
+    margin: 30px;
+
+    /* 박스에 그림자 주기 */
+    box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.1); 
+        /* rgba 
+        -> 0 : 가장 까만색, 255 : 가장 흰 색 
+        -> 마지막 0.1 ; 투명도
+        */
+}
+
+footer {
+    background-color: #1e1e1e;
+    color: #919191;
+    font-size: 12px;
+    padding: 20px;
+    text-align: center;
+}
+
+
+section {
+    margin-bottom: 24px;
+}
+
+.name-text {
+    font-size: 16px;
+    color: #7c7c7c;
+    font-weight: bold;
+}
+
+.about-me-text {
+    font-size: 10px;
+    line-height: 16px;
+}
+
+.title-text {
+    font-size: 11px;
+    font-weight: bold;
+    color: #282828;
+    /* 둥둥 떠다니는 속성, float
+        -> float 속성은 둥둥 떠다니기에, 주변의 다른 태그들을 끌어들여서, 위치를 내 의도대로 두지 못한다.
+    */
+    float: left;
+
+}
+
+.year-text {
+    font-size: 11px;
+    font-weight: bold;
+    color: #282828;
+    float: right;
+
+}
+
+.float-wrap {
+    overflow: hidden;
+}
+
+.desc-text {
+    font-size: 9px;
+}
+
+.desc-subtext {
+    font-size: 9px;
+    color: #282828;
+    padding-left: 16px; /* 들여쓰기 느낌의 padding */
+}
+
+.title-box {
+    text-align: right;
+}
+
+.sns-img {
+    width: 12px;
+    height: 12px;
+}
+
+.sns-wrap {
+    text-align: right;
+}
