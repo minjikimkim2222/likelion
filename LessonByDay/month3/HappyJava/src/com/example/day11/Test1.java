@@ -7,8 +7,9 @@ public class Test1 {
         System.out.println(parent.getI()); // 5
 
         Child child1 = new Child();
-        System.out.println(child1.i); // 5
-        System.out.println(child1.getI()); // 5
+        System.out.println(child1.i);
+        System.out.println(child1.getI());
+        System.out.println(child1.getI(7));
 
         // 아무것도 상속받지 않으면, 자동으로 java.lang.Object를 상속받는다.
         System.out.println(parent.toString());
