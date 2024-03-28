@@ -7,10 +7,10 @@ public class ReTest {
         Object obj1 = new Parent();
         Object obj2 = new Child();
 
-        System.out.println(parent.i);
+        System.out.println(parent.i); // 5
 
         Child c = (Child)parent;
-        System.out.println(c.i);
+        System.out.println(c.i); // 10
 
         if (obj1 instanceof Child){
             Child c2 = (Child)obj1;
