@@ -2,12 +2,25 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>CSS Selectors</title>
-    <style></style>
+    <title>CSS Selectors - 가상요소 선택자</title>
+    <style>
+      a:link {
+        color: pink; /* 링크를 아직 방문하지 않았다면 */
+      }
+      a:visited {
+        color: skyblue; /* 링크를 이미 방문했다면 */
+      }
+      a:active {
+        color: red; /* 커서를 링크에 갖다대고, 클릭까지만 (링크 방문은 X) */
+      }
+      a:hover {
+        color: blueviolet; /* 커서를 링크에 갖다대기만 함. */
+      }
+    </style>
   </head>
   <body>
     Lorem ipsum dolor sit amet, consectetur <a href="#">adipisicing</a> elit,
-    sed do eiusmod <a href="http://net.tutsplus.com">tempor</a> incididunt ut
+    sed do eiusmod <a href="http://net.tutsplus.com" target="_blank">tempor</a> incididunt ut
     labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
     exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
   </body>

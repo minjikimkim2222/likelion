@@ -5,9 +5,34 @@
         <title>CSS 기본 문법</title>
         <style type="text/css">
             /* selector { property : value; property : value; } */
-           </style>
+        
+            /*
+            기본적으로 뒤에 있는 게 먼저 적용
+            태그보다는, 클래스가, 클래스보다는 id 선택자가 우선순위가 높다.
+            합쳐지면 합쳐질수록 우선순위가 높다!
+            */
+            h1#id_a {
+                color : blue;
+            }
+
+            #id_a {
+                color : seagreen;
+            }
+
+            .a {
+                color: red;
+            }
+
+            h1 {
+                color : skyblue;
+            }
+
+            h1 {
+                color : pink;
+            }
+        </style>
     </head>
     <body>
-
+        <h1 class="a" id="id_a">test</h1>
     </body>
 </html>

@@ -36,9 +36,7 @@ public class SplitString {
 //        }
 
         System.out.println("answer 테스트");
-        for (int i = 0; i < resultArr.length; i++){
-            System.out.println(i + "번째 : " + resultArr[i]);
-        }
+        System.out.println(Arrays.toString(resultArr));
 
         return resultArr;
     }

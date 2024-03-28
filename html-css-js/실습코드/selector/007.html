@@ -2,25 +2,39 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>CSS Selectors</title>
+    <title>CSS Selectors - 인접 선택자</title>
     <style>
       ul + p {
-        color: red;
+        color: red; /* 앞의 요소 바로 "뒤"에 있는 요소 "1개"만 선택 ; 인접이랬으니까 1개 */
+      }
+
+      ul p {
+        color: skyblue;
+      }
+
+      ul ~ p {
+        color: blue; 
+        /* ul + p는 오직 인접한 1개의 '형제' 태그 p만 가능했지만, ul ~ p는 ul의 '형제' 관계인 p 태그를 선택한 것 */
       }
     </style>
   </head>
   <body>
     <div id="container">
+      <p>얘도 인접요소에 영향을 받을까요?</p>
       <ul>
         <li>List Item</li>
         <li>List Item</li>
         <li>List Item</li>
         <li>List Item</li>
+        <p>이것도 CSS 적용됩니까?</p>
       </ul>
 
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor.
+      </p>
+      <p>
+        이 아이는 영향을 받을까요?
       </p>
     </div>
   </body>

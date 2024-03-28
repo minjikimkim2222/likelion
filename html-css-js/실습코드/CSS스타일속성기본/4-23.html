@@ -4,8 +4,17 @@
     <title>CSS Property Basic</title>
     <style>
         div {
-            width: 100px; height: 100px;
+            width: 100px;
+            height: 100px;
             background-color: red;
+
+            margin: 0px;
+            padding: 30px;
+            /* box-sizing: content-box; */
+            box-sizing: border-box;
+
+            /* 박스 기준을 content-box로 볼지, (content 요소까지의 width:100px, height: 100px)
+            박스 기준을 border로 본다면, content + padding + border까지 포함해 100px를 만드는 것 */
         }
     </style>
 </head>

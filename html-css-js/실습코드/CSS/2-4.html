@@ -5,16 +5,20 @@
         <title>CSS속성 - Font</title>
         <style type="text/css">
             .class-selector {
-                font-family:"맑은 고딕", "돋움";
-                font-weight:bold;
+                font-family:"맑은 고딕", "돋움"; /*컴퓨터에 해당 폰트가 없을 것을 가정해, 왼쪽부터 없으면 다음 폰트, 없으면 다음 폰트... 이렇게 적용됨 */
+                font-weight:lighter;
                 font-size:34px;                
+            }
+
+            .color-skyblue {
+                color: skyblue;
             }
         </style>
     </head>
     <body>
         <div>
             <p> 선택자는 CSS에서 HTML의 특정 요소를 선택하기 위한 규칙입니다.</p>
-            <p class="class-selector"> 선택자는 CSS에서 HTML의 특정 요소를 선택하기 위한 규칙입니다.</p>
+            <p class="class-selector color-skyblue"> 선택자는 CSS에서 HTML의 특정 요소를 선택하기 위한 규칙입니다.</p>
         </div>
     </body>
 </html>

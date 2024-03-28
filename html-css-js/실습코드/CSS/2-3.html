@@ -4,16 +4,41 @@
         <meta charset="utf-8" >
         <title>선택자의 종류</title>
         <style type="text/css">
-            * { margin:0; padding:0; }
-            p { color:#F62727; }
-           .class-selector { font-size:100px; }
-           #type-selector { background-color:#ddd; }
-          </style>
+            * { 
+                margin:0; 
+                padding:0; 
+            }
+
+            div {
+                border: 1px solid black;
+            }
+            
+            p { 
+                border: 1px solid red;
+                margin: 10px;
+                padding: 10px;
+                color:white;
+                background-color: black; 
+            }
+            
+            .class-selector { 
+            font-size:100px; 
+            }
+
+            #type-selector { 
+                background-color:pink;
+                color: lightslategrey;
+            }
+
+            div em {
+                color : red;
+            }
+        </style>
     </head>
     <body>
         <div id="type-selector">
             <h1 class="class-selector">선택자란?</h1>
-            <p> 선택자는 CSS에서 HTML의 특정 요소를 선택하기 위한 규칙입니다.</p>
+            <p> <strong><em>선택자</em></strong>는 CSS에서 HTML의 특정 요소를 선택하기 위한 규칙입니다.</p>
         </div>
     </body>
 </html>

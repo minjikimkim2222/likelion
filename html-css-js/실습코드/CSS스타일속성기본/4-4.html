@@ -3,10 +3,26 @@
   <head>
     <title>CSS3 Style Property Basic</title>
     <style>
+      /* % - 백분율 단위
+      em - 배수 단위 (4-4.html)
+      px - 픽셀 단위 - 고정된 값 */
       p:nth-child(1) {
       }
       p:nth-child(2) {
-        font-size: 1em;
+        font-size: 1.0em;
+      }
+      p:nth-child(3) {
+        font-size: 1.5em;
+      }
+      p:nth-child(4){
+        font-size: 2.0em;
+      }
+
+      p.compare1 {
+        font-size: 1.0em;
+      }
+      p.compare2 {
+        font-size: 2.0em;
       }
     </style>
   </head>
@@ -15,5 +31,8 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+    <p class="compare1">a</p>
+    <p class="compare2">a</p>
   </body>
 </html>

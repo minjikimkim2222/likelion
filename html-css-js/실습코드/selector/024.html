@@ -5,9 +5,12 @@
     <meta charset="UTF-8" />
     <title>CSS Selectors</title>
     <style>
-ul:nth-of-type(3) {
-   border: 1px solid red;
-}
+      /* 순서를 정하지 않은 ul 5개가 있다고 해보자.
+      오직 세번째 ul에 스타일을 지정하고 싶은데, 그것을 지정할 유일한 id가 없다면, 
+      nth-of-type(n) 가상 클래스를 사용한다. */
+      ul:nth-of-type(3) {
+         border: 1px solid red;
+      }
     </style>
 </head>
 <body>
