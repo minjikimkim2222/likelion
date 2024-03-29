@@ -1,0 +1,61 @@
+section.main > ul, section.main div, section.main p {
+    text-align: left;
+    padding-top: 10px;
+    /* border: 1px solid black; */
+}
+
+section.main li {
+    display: flex; 
+    /* 부모 요소에 display: flex를 추가해주면, 자식 요소들의 정렬 제어 가능
+        자식 요소들이 display: inline이건, block이건 레이아웃 설정 가능
+    */
+    align-items: center;
+}
+
+.section-img {
+    width: 200px;
+    height: 200px;
+    background-color: lightblue;
+    color: white;
+    padding-left: 10px;
+    margin-top : 30px;
+    box-sizing:border-box;
+    
+}
+
+.section-img img {
+    width: 200px;
+    height: 200px;
+    max-width: 100%; /* 이미지의 최대 너비를 부모 요소에 맞게 조절 */
+    max-height: 100%; /* 이미지의 최대 높이를 부모 요소에 맞게 조절 */
+    display: block; /* 이미지를 블록 요소로 설정하여 다른 요소와 수직 정렬 */
+    border: 3px solid lightblue;
+}
+
+.section-text {
+    padding-left: 30px;
+}
+
+.first-section {
+    padding-top : 40px;
+}
+
+.font-bold {
+    font-weight: bolder;
+}
+
+.font-lighter {
+    font-weight: lighter;
+}
+
+.second-section, .third-section {
+    padding: 30px;
+}
+
+.content-wrap span {
+    padding-left: 10px;
+}
+.contact-img {
+    width: 12px;
+    height: 12px;
+}
