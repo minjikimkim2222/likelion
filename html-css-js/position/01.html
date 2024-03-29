@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>position1</title>
+    <style>
+        section div {
+        display: inline-block;
+        width: 300px;
+        height: 100px;
+        border: 3px solid #000000;
+        margin: 10px;
+        /* position: relative; */
+        }
+        .box1 {
+        background-color: red;
+        }
+        
+        .box2 {
+        background-color: aqua;
+        position: relative;
+        top: 30px;
+        right: 20px;
+
+        /* position이 static일 때는 top, right가 전혀 적용 안됨
+        그러나 postition이 relative일 때는, top, right 적용됨
+        
+        또한 static이나 relative의 공통점은, 브라우저 크기 확대/축소 때마다 박스가 물흐르듯이 아래줄로 바뀌거나 등의 흐름을 볼 수 있다. */
+        }
+    </style>
+  </head>
+  <body>
+    <section>
+        <div class="box1"></div>
+        <div class="box2"></div>
+    </section>
+   </body>
+</html>

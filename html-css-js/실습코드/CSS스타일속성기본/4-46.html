@@ -3,9 +3,11 @@
   <head>
     <title>CSS3 Font Property</title>
     <style>
+      /* 없었을 때는 그 다음 폰트 지정 */
       .font_arial {
         font-family: "없는 폰트", Arial;
       }
+      /* 처음에 적용되면, 걔로 진행 */
       .font_roman {
         font-family: "Times New Roman", Arial;
       }
@@ -13,6 +15,6 @@
   </head>
   <body>
     <h1 class="font_arial">Lorem ipsum</h1>
-    <p class="font_roman">Lorem ipsum</p>
+    <h1 class="font_roman">Lorem ipsum</h1>
   </body>
 </html>

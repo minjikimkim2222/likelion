@@ -2,6 +2,8 @@
 <html>
 <head>
     <title>CSS3 Property Basic</title>
+    <!-- 요소들이 겹쳐질 때, 어떤 요소를 더 위에 올릴거냐?
+    를 결정짓는게 z-index -->
     <style>
         .box { 
             width: 100px; height: 100px; 
@@ -10,12 +12,12 @@
         .box:nth-child(1) {
             background-color: red;
             left: 10px; top: 10px;
-            z-index: 100;
+            z-index: 10;
         }
         .box:nth-child(2) {
             background-color: green;
             left: 50px; top: 50px;
-            z-index: 10;
+            z-index: 100;
         }
         .box:nth-child(3) { 
             background-color: blue;
