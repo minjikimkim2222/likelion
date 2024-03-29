@@ -10,6 +10,7 @@ public class SplitString_ex3_ArrayList {
         arrayList.add(1,"second");
         arrayList.add("third");
         arrayList.add(0, "꼽사리");
+        arrayList.add("");
 
         System.out.println(arrayList.get(1));
 

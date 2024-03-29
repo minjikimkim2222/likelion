@@ -12,6 +12,23 @@ import java.util.Arrays;
  */
 public class SplitString {
 
+    public static String[] solutionFirst(String myString){
+        String[] splitString = myString.split("x"); // d cc bbb aaaa
+//          System.out.println(splitString[0]); d
+//          System.out.println(splitString[1]); cc
+//          System.out.println(splitString[2]); bbb
+//          System.out.println(splitString[3]); aaaa
+
+        Arrays.sort(splitString);
+
+        System.out.println("solution first test");
+        for (int i = 0; i < splitString.length; i++){
+            System.out.println(splitString[i]);
+        }
+
+        return splitString;
+    }
+
     public static String[] solution(String myString){
 
         String[] splitString = myString.split("x"); // "" "a" "b" "c"
@@ -26,14 +43,10 @@ public class SplitString {
             if (!temp.equals("")){
                 resultList.add(temp);
             }
-        }
+        } // "a" "b" "c"
 
         String[] resultArr = resultList.toArray(new String[resultList.size()]);
         Arrays.sort(resultArr);
-
-//        for (int i = 0; i < splitString.length; i++){
-//            System.out.println(i + "번째 str : " + splitString[i]);
-//        }
 
         System.out.println("answer 테스트");
         System.out.println(Arrays.toString(resultArr));
@@ -42,9 +55,10 @@ public class SplitString {
     }
     public static void main(String[] args) {
 
-        // String myString = "axbxcxdx";
-        // String myString = "dxccxbbbxaaaa";
-        String myString = "xaxbxcx";
+        // String myString2 = "dxccxbbbxaaaa"; // aaaa bbb cc d
+        String myString = "axxbxcx"; // "" "a" "b" "c"
+
+       //  SplitString.solutionFirst(myString2);
 
         String[] result = SplitString.solution(myString);
 
