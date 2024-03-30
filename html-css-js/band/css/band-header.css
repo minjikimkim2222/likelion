@@ -1,0 +1,68 @@
+header {
+    border: 1px solid #d1c7b8;
+    margin-top: 0;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+header ul {
+    padding: 0;
+}
+
+li {
+    display: inline-block;
+}
+
+header li.band-name{
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+header input{
+    background-color: #dbfcca;
+    border: 1px solid black;
+    /* border-radius: 왼쪽위 오른쪽위 오른쪽아래 왼쪽아래 */
+    border-radius: 5px;
+    padding-right: 80px;
+    padding-left: 30px;
+}
+
+header .search-bar {
+    position: relative; /* 부모 요소에 position: relative; 추가 */
+}
+
+header .fa-magnifying-glass {
+    position: absolute; /* 아이콘을 절대 위치로 설정 */
+    left: 7px; /* 원하는 위치로 조정 */
+    top: 10%; /* 수직 가운데 정렬 */
+}
+
+.nav-wrap li{
+    margin-right: 5px;
+}
+
+.nav-wrap li:nth-child(1){
+    width: 80px;
+    padding: 1px;
+    font-size: small;
+}
+
+#feed {
+    padding: 4px;
+    background-color: #1ee840;
+    color: white;
+    font-size: smaller;
+    border-radius: 5px;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.float-wrap {
+    overflow : hidden;
+}
