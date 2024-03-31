@@ -1,0 +1,37 @@
+#first-section, #second-section, #third-section {
+    /* 얘 알기 쉽게 border 가시화한 거라 나중에 지워야 함! */
+    border: 1px solid red; 
+    width: 100%;
+    margin-top : 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box; /* padding과 border를 포함한 요소의 크기 조정 */
+}
+
+#first-section {
+    background-color: #F6F6F6;
+    /* padding-left: 10px; */
+    height: 100px;
+}
+
+#first-section li {
+    border: 1px solid blue;
+}
+
+/* 여기부터 수정 필요! */
+
+#first-section .section1-wrap {
+    position: relative; /* 부모 요소에 position: relative; 추가 */
+
+
+}
+
+#first-section .logo-img {
+    width: 70px;
+    height: 70px;
+    position: absolute; 
+    /* .section-wrap이 부모 요소 중 가장 가까운 relative 속성이니, 해당 클래스를 기준으로 포지션이 적용된다.*/
+    left: 30px;
+    top: 0%;
+
+
+}
