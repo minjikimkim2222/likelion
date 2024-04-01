@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 변수, 상수
+        // var -- 변수, 상수,, 모든 다 썼다. 그러나, ES6 이후로는 사용을 지양하고 있다.
+
+        //  ES6부터는 변수는 let, 상수는 const를 사용하게 되었다.
+
+        /* ES6에서 var보드 let을 선호하는 이유!
+            1. var 중복선언 가능! (let은 안됨)
+            2. var 호이스팅 된다. (let은 안됨)
+            3. 변수의 scope (var - 함수단위!) (let - 블럭 단위)
+        */
+        console.log(v1); // 호이스팅
+        varScopeTest(); // 호이스팅
+
+        var v1 = 0;
+
+        var v1 = 10;
+        console.log(v1); // 중복 선언!
+
+        // let - 중복선언 불가능 !!, 호이스팅 불가능 !!
+        // console.log(let1);
+        let let1 = 0;
+        //let let1 = 10;
+
+        console.log(let1);
+
+        function varScopeTest() {
+            if (true) {
+                var varScope = 10; // if블럭에서 선언된 변수인데, var은 함수 단위라 가능
+            }
+            console.log("varScope : " + varScope);
+        }
+
+        varScopeTest();
+
+        function letScopeTest() {
+            if (true) {
+                let letScope = 10; // if블럭에서 선언된 변수
+            }
+            console.log("letScope : " + letScope);
+        }
+
+        //letScopeTest(); // let - 블럭 단위라 에러 남!
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>성적 분류하기</title>
+</head>
+<body>
+    <h1>성적 분류하기</h1>
+    <p id="score"></p>
+    <script>
+        let input = prompt('점수를 입력해주세요!');
+        let score;
+
+        if (input >= 90)
+            score = 'A';
+        else if (input >= 80)
+            score = 'B';
+        else if (input >= 70)
+            score = 'C';
+        else if (input >= 60)
+            score = 'D';
+        else
+            score = 'F';
+
+        let print = document.getElementById('score');
+        print.innerHTML = "점수는 " + score;
+
+    </script>
+</body>
+</html>
