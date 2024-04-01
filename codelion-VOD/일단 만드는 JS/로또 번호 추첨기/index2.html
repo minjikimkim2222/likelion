@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또 번호 추첨기</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>로또 번호 추첨기 2</h1>
+    <script>
+        /*
+        >>>> 이슈 1 : 배열 실습 <<<<
+        var lotto = [1,2,3,4,5,6];
+        for (var i = 0; i < lotto.length; i++){
+            document.write(lotto[i]);
+        }
+
+        lotto.push(7);
+        document.write(lotto[6]);
+
+        >>>> 이슈 2 : 배열 중복 검사 = .indexOf(값) <<<<
+
+        lotto = [1,2,2,3,4,5]; 와 같이 중복된 값에 대한 처리를 해줘야 한다
+        만약 중복이 아니라면, .push() 추가하자!
+        
+        .indexOf(값)
+        값이 있으면 위치, 없으면 -1
+
+        >>>> 이슈 3 : (이슈2 이어서) 중복된 값이 나온다면 한번 더 뽑아서 총 6개가 되도록 한다! <<<<
+        
+        공을 6번 뽑기 X, 공이 6개가 될 때까지 뽑기 -> while문과 .length (배열의 길이) 이용
+
+        >>>> 이슈 4 : 배열 값 정렬해주는 .sort() <<<<
+
+        .sort()만 하면 사전순으로 정렬되고, 숫자 오름차순 안됨
+        .sort((a,b) => a-b) 이렇게 함; b-a는 내림차순
+        */
+
+        var lotto = [];
+        
+        while (lotto.length != 6){
+            var ball = parseInt(Math.random() * 45 + 1);
+
+            if (lotto.indexOf(ball) == -1)
+                lotto.push(ball); // 중복이 아니라면
+
+        }
+
+        lotto = lotto.sort((a,b) => a-b);
+
+        document.write("<div class='ball ball1'>" + lotto[0] + "</div>");
+        document.write("<div class='ball ball2'>" + lotto[1] + "</div>");
+        document.write("<div class='ball ball3'>" + lotto[2] + "</div>");
+        document.write("<div class='ball ball4'>" + lotto[3] + "</div>");
+        document.write("<div class='ball ball5'>" + lotto[4] + "</div>");
+        document.write("<div class='ball ball6'>" + lotto[5] + "</div>");
+
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+document.write('html - js 외부 연결');
