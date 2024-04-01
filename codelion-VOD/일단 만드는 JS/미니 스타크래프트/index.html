@@ -5,12 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>미니 스타크래프트</title>
     <style>
+        .background {
+            position: relative;
+
+        }
         #spit {
             display: none; /* drone 클릭할 때마다 나타나야 하니 디폴트값으로 none 설정*/
+            position: absolute;
+            top: 70px;
+        }
+        #drone {
+            float: left;
+        }
+        #bunker {
+            float:right;
         }
     </style>
 </head>
 <body>
+    <h1 id="hp">HP : 3</h1>
     <div class='background'>
         <img id='drone' src="drone.png" alt="drone">
         <img id='spit' src="spit.png" alt="spit">
@@ -20,8 +33,23 @@
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
     crossorigin="anonymous"></script>
     <script>
+        var hp = 3;
+
         $('#drone').click(function() {
-            console.log('침 발사');
+            // 침 나타내기 - 구글링
+            $('#spit').fadeIn('fast');
+            // 나타난 침이, 목표물(bunker)까지 이동
+            $('#spit').animate({left: '+=250'});
+            // 벙커까지 이동한 침은, 후에 사라진다.
+            $('#spit').fadeOut(function(){
+                hp = hp - 1;
+                $('#hp').text('HP : ' + hp);
+                if (hp == 0){
+                    $('#bunker').fadeOut();
+                }
+            });
+            // 사라진 침을, 원래의 spit 위치로 옮겨주기
+            $('#spit').css({left: '200px'});
         });
     </script>
 </body>
