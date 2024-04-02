@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 함수3</title>
+</head>
+<body>
+    <script>
+        
+        function add(a){
+            console.log("a+a");
+            return a+a;
+        }
+
+        function add(a,b){
+            console.log("a+b");
+            return a+b;
+        }
+
+        // JavaScript는, 메서드가 오버로딩되지 않는다.
+        // add(a)와 add(a,b)가 구분되지 않아(똑같이 본다),
+        // 나중에 선언된 add함수가 실행된다.
+        add(3);
+        add(3,5);
+        add(3,5,9,9);
+        add(3,"abd");
+
+        function add(a,b,c){
+            console.log(arguments.length);
+            
+            for (let i = 0; i < arguments.length; i++){
+                console.log(i + "번째 매개변수 값 : " + arguments[i]);
+            }
+        }
+
+        add(1,2,3);
+    </script>
+</body>
+</html>

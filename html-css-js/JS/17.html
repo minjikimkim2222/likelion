@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열 내장함수</title>
+</head>
+<body>
+    <script>
+        // filter - 배열에서 특정 조건 만족하는 값들만 따로 추출해, 새로운 배열 만들기
+        const todos = [
+        {
+            id: 1,
+            text: '자바스크립트 입문',
+            done: true
+        },
+        {
+            id: 2,
+            text: '함수 배우기',
+            done: true
+        },
+        {
+            id: 3,
+            text: '객체와 배열 배우기',
+            done: true
+        },
+        {
+            id: 4,
+            text: '배열 내장함수 배우기',
+            done: false
+        }
+        ]; // 배열인데, 각 배열원소가 객체임
+
+        const newArr = todos.filter(todo => todo.done == false);
+
+        console.log(newArr);
+    </script>
+</body>
+</html>

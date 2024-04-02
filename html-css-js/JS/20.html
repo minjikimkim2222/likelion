@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열 내장함수</title>
+</head>
+<body>
+    <script>
+        // concat 
+        const arr1 = [1,2,3,4];
+        const arr2 = [5,6,7];
+
+        const concated = arr2.concat(arr1);
+        console.log(concated);
+        
+        // join - 배열 안의 값들을 문자열로 합쳐준다
+        const arr = [1,2,3,4,5];
+
+        console.log(arr.join()); // 1,2,3,4,5
+        console.log(arr.join('')); // 12345
+        console.log(arr.join(', '))// 1, 2, 3, 4, 5
+        console.log(arr.join(' + '));// 1 + 2 + 3 + 4 + 5
+
+    </script>
+</body>
+</html>

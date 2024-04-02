@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 함수2</title>
+</head>
+<body>
+    <script>
+        hello();
+        // 함수 호이스팅
+        function hello(){
+            console.log("hello");
+        }
+
+        // 함수 중복 정의 가능
+        // 중복 정의되었을 때는, 가장 마지막에 정의된 함수가 실행됨
+        function hello(){
+            console.log("minjiki2 hello~~~~~~");
+        }
+
+        // 싱수 func1에 함수가 정의.. 함수가 일급 객체이기에 가능!
+        const func1 = function() {
+            console.log("func hello!");
+        }
+
+        func1();
+
+        // 화살표 함수
+        const func2 = () => {console.log("화살표 함수 실행");}
+        func2();
+
+        function hi(a){ // js에서 매개변수 타입 안 씀 (어차피 다 똑같이 let,const니까 쓸 필요 X)
+            console.log("hello : " + a);
+        }
+
+        const hi2 = (input) => {
+            console.log("hi : " + input);
+        }
+
+        hi("minjiki2");
+        hi(10);
+
+        hi2("minjiki2");
+        hi2(10);
+
+        function sum(a,b){
+            return a+b;
+        }
+
+        const sum2 = (a,b) => a+b;
+
+        const sum3 = function(a,b){
+            return a+b;
+        }
+        console.log(sum(1,2));
+        console.log(sum2(1,2));
+        console.log(sum3(1,2));
+
+        function minus(a,b){
+            return a-b;
+        }
+
+        const minus2 = (a,b) => a-b;
+
+        const minus3 = function(a,b){
+            return a-b;
+        }
+
+        console.log(minus(1,2));
+        console.log(minus2(1,2));
+        console.log(minus3(1,2));
+    </script>
+</body>
+</html>

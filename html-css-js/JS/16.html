@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열의 내장함수</title>
+</head>
+<body>
+    <script>
+        // indexOf
+        const superheroes = ['아이언맨', '캡틴 아메리카', '토르', '닥터 스트레인지'];
+        console.log(superheroes.indexOf('캡틴 아메리카'));
+
+        // findIndex
+        const todos = [
+        {
+            id: 1,
+            text: '자바스크립트 입문',
+            done: true
+        },
+        {
+            id: 2,
+            text: '함수 배우기',
+            done: true
+        },
+        {
+            id: 3,
+            text: '객체와 배열 배우기',
+            done: true
+        },
+        {
+            id: 4,
+            text: '배열 내장함수 배우기',
+            done: false
+        }
+        ]; // 배열인데, 각 배열원소가 객체임
+
+        const index = todos.findIndex(todo => todo.id == 3);
+
+        console.log(index);
+
+        // find 함수 - findIndex랑 비슷한데, 찾아낸 값이 몇번째인지가 아니라 값 자체 반환
+        const todo = todos.find(todo => todo.id == 3);
+        console.log(todo);
+    </script>
+</body>
+</html>

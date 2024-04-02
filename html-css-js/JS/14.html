@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - 배열 내장함수</title>
+</head>
+<body>
+    <script>
+        // >>>  forEach 내장함수 예제
+        const superheroes = ['아이언맨', 
+        '캡틴 아메리카', '토르', '닥터 스트레인지'];
+
+        console.log(superheroes);
+
+        const hi = function(name){
+            alert("hi ," + name);
+        }
+
+        //superheroes.forEach(hi);
+
+        superheroes.forEach(function(name){
+            console.log("hi, " + name);
+        });
+
+        superheroes.forEach(
+            (name) => {
+                console.log(name);
+            }
+        );
+    </script>
+</body>
+</html>

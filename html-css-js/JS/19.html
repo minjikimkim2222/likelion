@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열 내장함수</title>
+</head>
+<body>
+    <script>
+        // shift, pop
+        const numbers = [10,20,30,40];
+        const val1 = numbers.shift();
+
+        console.log(val1); // 배열 첫번째 원소부터 빼는 shift
+        console.log(numbers);
+
+        console.log(numbers.pop()); // 배열 마지막 원소부터 빼는 pop
+        console.log(numbers);
+
+        
+        // unshift, push
+        numbers.unshift(10);
+
+        console.log(numbers); // 배열 첫번째 원소부터 넣는 unshift
+        
+        numbers.push(40);
+        console.log(numbers); // 배열 마지막 원소부터 넣는 push
+
+    </script>
+</body>
+</html>

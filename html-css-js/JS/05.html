@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 함수</title>
+</head>
+<body>
+    <script>
+
+        /*  자바스크립트의 함수는 일급'객체'로 취급한다.
+            함수도 타입이 될 수 있다.
+        */
+        function test(){
+            console.log("test");
+        }
+
+        let c0 = test(); // test함수의 리턴값을 받는 c0
+        let c = test; // test함수는 객체이기에 변수에 넣을 수 있음
+
+        // console.log(typeof c);
+
+        function test2(abc){
+            // 함수의 매개변수로 함수를 받을 수 있다.
+            abc();
+        }
+
+        test2(c);
+
+        let ttt = test2;
+        console.log(ttt);
+
+        function test3(){
+            return ttt;
+        }
+
+        console.log(test3());
+    </script>
+</body>
+</html>

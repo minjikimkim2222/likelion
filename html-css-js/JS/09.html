@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 객체</title>
+</head>
+<body>
+    <script>
+        // javascript는 중괄호 열고 닫는 애 {} 를 객체라고 판단해준다.
+        const obj = {};
+        console.log(typeof obj); // object
+
+        const bread = {
+            name: "치즈케이크",
+            price: 4000
+        };
+
+        console.log(bread.name); // 치즈케이크
+        console.log(bread["price"]); // 4000
+
+        const ironMan = {
+        name: '토니 스타크',
+        actor: '로버트 다우니 주니어',
+        alias: '아이언맨'
+        };
+
+        const captainAmerica = {
+        name: '스티븐 로저스',
+        actor: '크리스 에반스',
+        alias: '캡틴 아메리카'
+        };
+
+        console.log(ironMan); // 객체 자체가 출력됨
+        console.log(captainAmerica);
+        console.log(ironMan.alias);
+
+        // 함수에서 객체를 파라미터로 받기
+        function print(hero){
+            const text = `${hero.alias} 역할을 맡은 배우는 ${hero.actor}입니다`;
+            console.log(text);
+        }
+
+        print(ironMan);
+        print(captainAmerica);
+
+        // 객체 비구조화 할당
+        function print(hero){
+            const {alias, name, actor} = hero;
+            const text = `${hero.alias} 역할을 맡은 배우는 ${hero.actor}입니다`;
+            console.log(text);
+        }
+
+        function print( {alias, name, actor}){
+            const text = `${alias} 역할을 맡은 배우는 ${actor}입니다`;
+            console.log(text);
+        }
+
+        const dog = {
+            name: '멍멍이',
+            age: 3
+        };
+
+        const {name, age} = dog;
+
+        console.log(name, age);
+    </script>
+</body>
+</html>

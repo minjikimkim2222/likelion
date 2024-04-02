@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열 내장함수</title>
+</head>
+<body>
+    <script>
+        // splice - 배열에서 특정 항목을 제거할 때
+        const numbers = [10,20,30,40];
+
+        const index = numbers.indexOf(30);
+        numbers.splice(index, 2); // 2번 index로부터 2개 지워주세요
+        console.log(numbers); // 배열을 잘라서 새 배열에 할당 X, 기존 배열 자르기 O
+
+        // slice - 배열을 잘라낼 때 사용, 기존의 배열을 건드리지 않는다
+        const number2 = [10,20,30,40];
+        const sliced = number2.slice(0,3);
+
+        console.log(number2);
+        console.log("sliced" + " " + sliced);
+    </script>
+</body>
+</html>
