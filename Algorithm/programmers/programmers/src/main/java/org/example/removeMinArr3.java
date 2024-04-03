@@ -24,7 +24,7 @@ public class removeMinArr3 {
         // 2. 가공하기 - 매핑
         Stream<String> mappingStream =
                 names.stream()
-                .map(String::toUpperCase);
+                .map(str -> str.toUpperCase());
 
         // 대문자로 변환된 문자열을 리스트에 수집
         List<String> collectedList = mappingStream.collect(Collectors.toList());
@@ -35,12 +35,14 @@ public class removeMinArr3 {
         Stream<String> sortingStream1 =
                 names.stream()
                 .sorted();
-        sortingStream1.forEach(System.out::println); // Elena Eric Java
+        sortingStream1.forEach(name -> System.out.println(name));
+        // sortingStream1.forEach(System.out::println); // Elena Eric Java
             // 2. Comparator 넘겨서
         Stream<String> sortingStream2 =
                 names.stream()
                 .sorted(Comparator.reverseOrder());
-        sortingStream2.forEach(System.out::println); //  Java Eric Elena
+        sortingStream2.forEach(name -> System.out.println(name));
+        // sortingStream2.forEach(System.out::println); //  Java Eric Elena
     }
 
     public static void streamAPIwithArrays(){

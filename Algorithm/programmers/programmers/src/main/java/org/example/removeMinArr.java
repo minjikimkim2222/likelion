@@ -12,7 +12,7 @@ import java.util.List;
 public class removeMinArr {
     public static int[] solution1(int[] arr){  // ArrayList 이용
         int[] resultArr;
-        List<Integer> arrList = new ArrayList<Integer>();
+        List arrList = new ArrayList<>();
         Integer[] arr2 = Arrays.stream(arr).boxed().toArray(Integer[]::new);
 
         if (arr.length <= 1) { // 배열 길이 1 이하
@@ -23,7 +23,7 @@ public class removeMinArr {
         Arrays.sort(arr2, (a,b) -> b-a); // 림다힘수 이용
         //Arrays.sort(arr2, Collections.reverseOrder());
 
-        int min = arr2[arr2.length-1]; // 1
+        int min = arr[arr2.length-1]; // 1
 
 
         for (int idx = 0; idx < arr.length; idx++) {
