@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>비동기</title>
+  </head>
+  <body>
+    <script>
+        function work() {
+            setTimeout(() => {
+                console.log("callback3");
+                setTimeout(() => {
+                console.log("callback4");
+                }, 0);
+            }, 0);
+        }
+
+        console.log("stack1");
+        work();
+        setTimeout(console.log("stack2"), 0);
+
+        setTimeout(() => {
+            console.log("callback5");
+            setTimeout(() => {
+            console.log("callback6");
+            });
+        }, 0);
+
+        /*
+        c3을 큐에 넣음
+        s2을 큐에 넣음
+        c5를 큐에 넣음
+        c3을 큐에서 스택으로 꺼내서 실행 -> c3출력하고, c3에서 c4를 큐에 넣음
+        s2 큐에서 스택으로 꺼내서 실행  -> s2출력
+        c5를 큐에서 스택으로 꺼내서 실행  -> c5 출력하고, c5에서 c6을 큐에 넣음
+        c4를 큐에서 스택으로 꺼내서 실행 -> c4출력
+        c6을 큐에서 스택으로 꺼내서 실행 -> c6 출력
+                */
+    </script>
+    </body>
+</html>

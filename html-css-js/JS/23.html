@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로토타입</title>
+</head>
+<body>
+    <script>
+        function Animal(type, name, sound) {
+        this.type = type;
+        this.name = name;
+        this.sound = sound;
+        }
+
+        Animal.prototype.say = function() {
+            console.log(this.sound);
+        };
+
+        Animal.prototype.sharedValue = 1;
+        
+        const dog = new Animal('개', '멍멍이', '멍멍');
+        const cat = new Animal('고양이', '야옹이', '야옹');
+        
+        dog.say();
+        cat.say();
+        
+        console.log(dog.sharedValue);
+        console.log(cat.sharedValue);
+
+        cat.sharedValue = 2;
+
+        // however! 공유했던 공간이지만 값을 바꾸면,, 공유하진 않는다.
+        console.log(dog.sharedValue);
+        console.log(cat.sharedValue);
+
+        delete cat.sharedValue; // 잘못 추가한 속성을 delete를 이용해 지울 수도 있다.
+
+        console.log(cat.sharedValue);
+
+        Animal.prototype.sharedValue = 23;  // 이게 공유하는 프로토타입 값을 수정하는 방법!
+
+        console.log(dog.sharedValue);
+        console.log(cat.sharedValue);
+        cat.say = function() {
+            console.log("공유했던 say를 다시 정의하자!!! 냥냥");
+        }
+
+        cat.say();
+        dog.say();
+    </script>
+</body>
+</html>

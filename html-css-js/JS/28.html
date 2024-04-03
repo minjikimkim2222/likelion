@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비동기</title>
+</head>
+<body>
+    <script>
+        function work(callback){
+            setTimeout(() => {
+                const start = Date.now();
+                for (let i = 0; i < 1000000000; i++) {}
+                const end = Date.now();
+                console.log(end-start + 'ms');
+
+                callback();
+            }, 0);
+        }
+
+        // setTimeout(hi,0); 
+
+        console.log("start!!")
+        work(() => {
+            console.log("work end!");
+            console.log("다음 작업!!");
+        });
+
+        /*
+            함수 흐름
+            먼저, 자바스크립트 stack에 올라온 "start!!"부터 콘솔에 출력한다.
+            그럼 setTimeout으로 비동기방식이 된 work함수가 이제 스택이 모두 비워졌으니 실행된다.
+            초를 계산한 것을 콘솔에 출력하고(471ms),
+
+            work함수가 파라미터로 받은 callback함수를 실행한다. 해당 함수는 화살표함수로 정의된 함수로,
+            해당 함수 안의 내용을 콘솔로 출력해주면 된다!
+
+            -> 비동기방식 이후에 할 일이 있다면, 비동기함수의 파라미터 추가!
+        */
+    </script>
+</body>
+</html>

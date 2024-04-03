@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 생성자</title>
+</head>
+<body>
+    <script>
+        function Animal(type, name, sound){
+            this.type = type;
+            this.name = name;
+            this.sound = sound;
+            this.say = function() {
+                console.log(this.sound);
+            };
+        }
+
+        const dog = new Animal('개', '멍멍이', '먕먕');
+        const cat = new Animal('고양이', '냥이', '냥냥');
+
+        cat.hi = function(){ // 객체 만들고 나서 원하는 속성을 따로 넣는 것, 가능!
+            console.log("hi~~ cat");
+        }
+
+        cat.hi();
+        // dog.hi();
+        dog.say();
+
+        dog.say = function(){
+            console.log("new say " + this.sound);
+        }
+
+        dog.say();
+        cat.say(); // 각 객체는 독립적으로 존재한다.
+    </script>
+</body>
+</html>

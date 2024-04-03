@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클래스/상속</title>
+</head>
+<body>
+    <script>
+        // 클래스
+        class Animal {
+            constructor(type, name, sound){
+                this.type = type;
+                this.name = name;
+                this.sound = sound;
+            }
+            say(){
+                console.log(this.sound);
+            }
+        }
+
+        const dog = new Animal('개', '멍멍이', '먕먕');
+        const cat = new Animal('냥이', '냥냥이', '야옹');
+
+        dog.say();
+        cat.say();
+
+        // 클래스 상속
+        class Dog extends Animal {
+            constructor(name, sound){
+                super('개 상속', name, sound);
+            }
+        }
+
+        const dog2 = new Dog('멍멍이2', '먕먕2');
+
+        dog2.say();
+
+    </script>
+</body>
+</html>
