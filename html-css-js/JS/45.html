@@ -24,12 +24,19 @@
         const todoBtn = document.getElementById("todo-btn");
         const todo = document.getElementById("todo"); // (할일6)
         const ul = document.querySelector("ul");
+
+        // console.log("todoBtn : " + todoBtn.innerHTML);
+        // console.log("todo : " + todo.innerHTML);
+        // console.log("ul : " + ul.innerHTML);
         
         todoBtn.addEventListener('click', () => {
 
             const li = document.createElement("li"); // <li><li> 요소가 한 개 만들어짐
             const text = document.createTextNode(todo.value); 
             // '할일6' 텍스트노드가 만들어짐 -> 선택된 요소에 텍스트 추가!
+                // todo.'value' -> value는 매번 달리지는 input값을 가져오는 속성!!
+                console.log("todo.value : " + todo.value);
+
             // 이제 '할일6' 이라는 텍스트 노드를 <li><li> 사이에, li 안으로 넣어주어야 함.
             li.appendChild(text);
             ul.appendChild(li);
@@ -41,8 +48,9 @@
          // -> 넘겨받은 이벤트 객체를 통해, event.target 이용 가능!
 
         ul.addEventListener('click', (event) => {
-            // console.log(event.target);
+            //console.log(event.target);
             alert(event.target.innerHTML);
+                // 39-2.html 코드 상기
         })
     </script>
 </body>
