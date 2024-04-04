@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event, this, event.target의 의미</title>
+</head>
+<body>
+    <div id="parent">
+        <button id="child">Click me!</button>
+    </div>
+
+    <script>
+        /*
+
+        event - 이벤트가 발생한 주소
+
+        this - 이벤트가 바인딩된 요소 (#parent)
+        event.target - 이벤트가 발생한 실제 요소 (#child)
+        */
+        const parentDiv = document.getElementById('parent');
+        parentDiv.addEventListener('click', function(event) {
+            console.log("event : " + event);
+            console.log("this : " + this);
+            console.log("event target : " + event.target);
+
+            console.log(event.target.innerHTML);
+        })
+
+        
+    </script>
+</body>
+</html>

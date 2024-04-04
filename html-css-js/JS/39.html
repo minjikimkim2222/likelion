@@ -12,10 +12,6 @@
         // 버튼이 클릭되었을 때, 바탕 화면 색깔이 바뀌게 설정
         // id 없이 버튼 가져오는 방법 
         function changeColor(event){
-            console.log("event" + event);
-            console.log("event target:::" + this);
-            console.log("this" + this);
-            console.log("event target" + event.target);
 
 
             const color = prompt('색을 입력하세요 : ');
@@ -23,21 +19,23 @@
         }
 
         // 1. querySelector -> 첫번째 버튼만 적용해줌 ,,ㅜ
-        //const btnclk = document.querySelector("button");
-        //btnclk.addEventListener('click', changeColor);
+        // const btnclk = document.querySelector("button");
+        // console.log(btnclk);
+        // btnclk.addEventListener('click', changeColor);
+
 
         // 2. querySelectorAll
-        // const btnclk = document.querySelectorAll("button");
-        // //console.log(btnclk);
+            // const btnclk = document.querySelectorAll("button");
+            // console.log(btnclk);
 
-        // for (let i = 0; i < btnclk.length; i++)
-        //     btnclk[i].addEventListener('click', changeColor);
+            // for (let i = 0; i < btnclk.length; i++)
+            //     btnclk[i].addEventListener('click', changeColor);
 
         // 3. getElementByTagName
-        const btnclk = document.getElementsByTagName("button");
-        //console.log(btnclk);
-        for (let i = 0; i < btnclk.length; i++)
-            btnclk[i].addEventListener('click', changeColor);
+            const btnclk = document.getElementsByTagName("button");
+            console.log(btnclk);
+            for (let i = 0; i < btnclk.length; i++)
+                btnclk[i].addEventListener('click', changeColor);
     </script>
 </body>
 </html>

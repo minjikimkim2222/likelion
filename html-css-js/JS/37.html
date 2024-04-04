@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>event</title>
+    <style>
+        body {
+            border : 1px solid red;
+        }
+    </style>
 </head>
 <body>
     <button id="click-btn">click</button>
@@ -11,9 +16,6 @@
         // event
         // 소스(대상) - 이벤트리스너 (이벤트 이름(ex click), 이벤트핸들러(함수), [Capturing 여부] )
 
-        function hi(){
-            alert('안녕~~~');
-        }
 
         function hi2(){
             alert('버튼이 클릭됐어요 ~~~~');
@@ -25,8 +27,11 @@
         console.log(btn);
 
         btn.addEventListener('click', hi2);
-
         
+        const body = document.body;
+        body.addEventListener('click', () => alert('여기는 body'));
+
+
     </script>
 </body>
 </html>
