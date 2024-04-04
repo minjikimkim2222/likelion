@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비동기 - async/await</title>
+</head>
+<body>
+    <script>
+        function sleep(ms){
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        async function process(){
+            console.log('안녕하시라요');
+            await sleep(3000);
+            console.log('반갑습니다요');
+        }
+
+        process().then(() => {
+            console.log('작업이 끝났습니다요!');
+        });
+
+    </script>
+</body>
+</html>

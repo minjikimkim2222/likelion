@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parcel Sandbox</title>
+</head>
+<body>
+    <h2 id="number">0</h2>
+    <div>
+        <button id="increase">+1</button>
+        <button id="decrease">-1</button>
+    </div>
+
+    <script>
+        // 1. click하면 alert 창 뜨게 이벤트 설정
+        // const btn_increase = document.getElementById("increase");
+        // btn_increase.addEventListener('click', () => alert("click increase!"));
+
+        // const btn_decrease = document.getElementById("decrease");
+        // btn_decrease.addEventListener('click', () => alert("click decrease!"));
+
+        // 2. 각 버튼을 누르면, h2 태그 속 값이 바뀌게 설정
+        let num = document.getElementById("number").innerHTML;
+        
+        document.getElementById("increase").addEventListener('click', () => {
+            num++;
+            document.getElementById("number").innerHTML = num;
+        })
+
+        document.getElementById("decrease").addEventListener('click', () => {
+            num--;
+            document.getElementById("number").innerHTML = num;
+        })
+    </script>
+</body>
+</html>

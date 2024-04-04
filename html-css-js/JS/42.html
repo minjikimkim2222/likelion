@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 버블링</title>
+    <style>
+        * {
+            border: 3px solid black;
+        }
+    </style>
+</head>
+<body>
+    <!-- 이벤트 전파!
+        박스 여러 개가 겹쳐져있음.
+        따라서 맨 위에 p 태그를 클릭하면, p -> h1 -> inner-inner-div -> inner-div -> outer-div까지 같이 모두 클릭된거라
+        이벤트가 연이어 발생한다!
+
+        안쪽 -> 바깥쪽으로 이벤트가 전파되는 형식이 마치 버블과 같군! (반대 전파는 캡쳐링)
+    -->
+    <div onclick="alert('outer-div');">
+        <div onclick="alert('inner-div');">
+            <div onclick="alert('inner-inner_div');">
+                <h1 onclick="alert('h1');">
+                    <p onclick="alert('p');">p태그</p>
+                </h1>
+            </div>
+    </div>
+</div>   
+</body>
+</html>

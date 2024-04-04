@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+</head>
+<body>
+    <button>버튼</button>
+    <button>버튼</button>
+    <script>
+        // 이벤트가 1번만 실행되고, 삭제되었으면 좋겠다!
+    
+        function changeColorRandom(){
+            const r = Math.random() * 255;
+            const g = Math.random() * 255;
+            const b = Math.random() * 255;
+
+            document.body.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+
+            // 등록했던 이벤트 한번 실행하고, 삭제
+            this.removeEventListener('click', changeColorRandom);
+        }
+
+        const btnclk = document.querySelectorAll("button");
+
+        // NodeList의 forEach 함수 적용  ! 
+        btnclk.forEach((btnOne) => {
+            btnOne.addEventListener('click', changeColorRandom);
+        }
+        )
+
+
+
+    </script>
+</body>
+</html>

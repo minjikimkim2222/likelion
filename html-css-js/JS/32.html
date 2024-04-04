@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise 함수</title>
+</head>
+<body>
+    <script>
+        const myPromise = new Promise((resolve, reject) => {
+            setTimeout(() => {
+            reject(new Error());
+            }, 1000);
+        });
+
+        console.log("start!!");
+
+        myPromise.then(n => {
+            console.log("console log(n)");
+            console.log(n);
+        })
+        .catch(error => {
+            console.log(error);
+            console.log("console.log(error)");
+        });
+        /*
+            1초 뒤에 실패되게끔 한다. 실패하는 상황에서는 reject를 사용하고, 
+            catch를 통해 실패 시 수행할 작업을 설정할 수 있다!
+        */
+    </script>
+</body>
+</html>

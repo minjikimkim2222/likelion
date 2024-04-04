@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비동기 - async, await</title>
+</head>
+<body>
+    <script>
+        function sleep(ms){
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        async function process(){ // 함수 앞에는 async 키워드 붙이기
+            console.log('안녕하시라요');
+            await sleep(3000); // 3초 쉬고 -> await를 붙여 비동기로 실행되게끔 만들기
+            console.log('반갑습니다요');
+
+            // await 붙인 애 기준으로, 아래 있는 코드들을 묶어 콜백함수로 보내, 비동기로 처리해준다!!
+        }
+
+        console.log("process 호출 전 !!");
+
+        process();
+
+        console.log("process 호출 후 !! ");
+    </script>
+</body>
+</html>

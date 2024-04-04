@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트를 이용해, 문서에 HTML 요소 추가</title>
+</head>
+<body>
+    
+    <ul>
+        <li>할일 1</li>
+        <li>할일 2</li>
+        <li>할일 3</li>
+        <li>할일 4</li>
+        <li>할일 5</li>
+    </ul>
+
+    <label for="todo">할일을 입력하세요!</label>
+    <input type="text" id="todo">
+    <button id="todo-btn">할 일 입력</button>
+
+    <script>
+        // todo-btn 버튼이 클릭되었을 때, 이벤트가 발생하면 좋겠다!
+        const todoBtn = document.getElementById("todo-btn");
+        const todo = document.getElementById("todo"); // (할일6)
+        const ul = document.querySelector("ul");
+        
+        todoBtn.addEventListener('click', () => {
+
+            const li = document.createElement("li"); // <li><li> 요소가 한 개 만들어짐
+            const text = document.createTextNode(todo.value); 
+            // '할일6' 텍스트노드가 만들어짐 -> 선택된 요소에 텍스트 추가!
+            // 이제 '할일6' 이라는 텍스트 노드를 <li><li> 사이에, li 안으로 넣어주어야 함.
+            li.appendChild(text);
+            ul.appendChild(li);
+                
+        })
+
+        // li를 클릭하면 각각 할일 text가 alert에 출력되도록 이벤트 작성해주세요!
+         // -> 이벤트 전파를 상기해라! 모든 li에 이벤트 거는 것보다 ul에 걸어보세요 !
+         // -> 넘겨받은 이벤트 객체를 통해, event.target 이용 가능!
+
+        ul.addEventListener('click', (event) => {
+            // console.log(event.target);
+            alert(event.target.innerHTML);
+        })
+    </script>
+</body>
+</html>

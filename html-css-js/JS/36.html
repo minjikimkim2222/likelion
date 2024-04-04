@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비동기 - async/await</title>
+</head>
+<body>
+    <script>
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        async function makeError() {
+            await sleep(3000);
+            const error = new Error();
+            throw error;
+        }
+
+        async function process() {
+            try {
+                await makeError();
+                console.log("makeError 실행이 끝난 후에 해야 할 일은 여기에 !!")
+            } catch (e) {
+                console.error(e);
+                console.log("error 발생 완료 !!");
+            }
+        }
+
+        process();
+    </script>
+</body>
+</html>

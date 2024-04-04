@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+</head>
+<body>
+    <button>버튼</button>
+    <button>버튼</button>
+    <script>
+        // 버튼을 누를 때마다 색깔이 랜덤값으로 바뀜
+        function changeColorRandom(){
+            const r = Math.random() * 255;
+            const g = Math.random() * 255;
+            const b = Math.random() * 255;
+
+            document.body.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+        }
+
+        const btnclk = document.querySelectorAll("button");
+
+        // NodeList의 forEach 함수 적용  ! 
+        btnclk.forEach((btnOne) => {
+            btnOne.addEventListener('click', changeColorRandom);
+        }
+        )
+        console.log(btnclk);
+
+
+    </script>
+</body>
+</html>

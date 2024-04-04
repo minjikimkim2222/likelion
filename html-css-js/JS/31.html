@@ -10,12 +10,23 @@
         const myPromise = new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(1);
+            console.log("setTimeout!")
         }, 1000);
         });
 
         myPromise.then(n => {
-        console.log(n);
+            console.log(n);
+            console.log("setTimeout 이후!");
         });
+
+        console.log("start!!");
+
+        /*
+        resolve를 호출할 때, 특정 값을 파라미터로 넣어주면, 이 값을 작업이 끝나고 실행해준다.
+        작업이 끝나고 나서 또다른 작업을 해야 할 때는 Promise 뒤에 .then을 붙여서 사용할 수 있다!
+
+        >> resolve 메서드의 매개변수에 전달된 값은 이후 then 함수의 콜백 함수로 전달
+        */
     </script>
 </body>
 </html>

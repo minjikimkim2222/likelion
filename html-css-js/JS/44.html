@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event exam - validaion check</title>
+</head>
+<body>
+    <form action="#" method="get" id="form1">
+        <label>이름 : <input type="text" name="userId" id="userId"></label> <br>
+        <label>비밀번호 : <input type="password" name="pw" id="pw"></label> <br>
+        <label>비밀번호 확인: <input type="password" name="checkPw" id="checkPw"></label> <br>
+        <input type="submit" value="회원가입">
+    </form>
+    <script>
+        // 이름을 잘 입력했는지 체크 -- alert('이름을 반드시 입력해야 합니다.')
+        // 비밀번호 2개가 잘 일치하는지 체크 -- alert('비밀번호는 동일해야 합니다. 다시 확인하세요')
+
+        // form1의 이벤트 이름 -- submit
+        // input요소.value -- input 상자 값을 꺼낼 수 있음
+
+        function validCheck(event){
+            const inputValue = document.getElementById("userId").value;
+            const passwordValue = document.getElementById("pw").value;
+            const passwordCheckValue = document.getElementById("checkPw").value;
+
+            const userId = document.getElementById("userId"); // userId 요소에 대한 참조 저장
+            const pw = document.getElementById("pw"); // pw 요소에 대한 참조 저장
+
+            if (inputValue == ""){
+                alert('아이디는 반드시 입력해야 합니다. 다시 입력해주세요!');
+                userId.focus(); // 입력실패했으니, 다시 아이디에 커서 포커스 시켜주기
+            } else if (passwordValue == ""){
+                alert('비밀번호는 반드시 입력해야 합니다. 다시 입력해주세요!');
+                pw.focus();
+            } else if (passwordValue != passwordCheckValue){
+                alert('비밀번호는 동일해야 합니다. 다시 확인해주세요!');
+                pw.focus();
+            } else
+                alert('회원가입 성공!');
+
+            event.preventDefault();
+            // 한번 회원가입 유효성 검사시키는 이벤트가 끝났다면, 해당 이벤트가 다시 실행 안되게끔 하는 함수
+            // 이벤트 버블링과 기본 동작 방지하여, 한 번의 유효성 검사 후 다시 실행되지 않도록 함
+
+        }
+
+        const form = document.getElementById("form1");
+        form.addEventListener('submit', validCheck);
+
+    </script>
+</body>
+</html>

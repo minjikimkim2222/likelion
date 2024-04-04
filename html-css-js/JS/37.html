@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+</head>
+<body>
+    <button id="click-btn">click</button>
+    <script>
+        // event
+        // 소스(대상) - 이벤트리스너 (이벤트 이름(ex click), 이벤트핸들러(함수), [Capturing 여부] )
+
+        function hi(){
+            alert('안녕~~~');
+        }
+
+        function hi2(){
+            alert('버튼이 클릭됐어요 ~~~~');
+        }
+        //document.addEventListener('click', hi);
+            // 문서 전체에 이벤트리스너 달아주기
+        
+        const btn = document.getElementById("click-btn");
+        console.log(btn);
+
+        btn.addEventListener('click', hi2);
+
+        
+    </script>
+</body>
+</html>
