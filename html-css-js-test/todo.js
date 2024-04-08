@@ -17,10 +17,10 @@ function renderTodoList() {
         const li = document.createElement('li');
         const text = document.createTextNode(todo.title); // 할 일 제목을 텍스트 노드로 만들기
         li.appendChild(text); // <li> 요소에 텍스트 노드 추가
-        //console.log(text); 
+        //console.log(text); <li>text </li>
 
         if (todo.done) { // Element.classList.add 자바스크립트로 클래스 추가하기
-            li.classList.add('done'); // 완료된 항목은 'done' 클래스 추가
+            li.classList.add('done'); // 완료된 항목은 'done' 클래스 추가 <li class="done">
         } else {
             li.classList.add('undone'); // 완료되지 않은 항목은 'undone' 클래스 추가
         }
@@ -34,7 +34,7 @@ function renderTodoList() {
         const deleteBtn = document.createElement('button');
         const deleteBtnContent = document.createTextNode('X');
             //console.log(deleteBtnContent);
-        deleteBtn.appendChild(deleteBtnContent);
+        deleteBtn.appendChild(deleteBtnContent); // <button>X</button>
         li.appendChild(deleteBtn);
         deleteBtn.classList.add('delete-button');
 
@@ -111,6 +111,6 @@ function removeTodo(todoId){
 
     if (index != -1){ // splice() - 배열의 특정 인덱스에서 제거
         basicDatas.splice(index, 1); // index 위치의 배열 요소 1개를 지우겠다는 의미
-        
+
     }
 }
