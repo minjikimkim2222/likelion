@@ -15,5 +15,9 @@ article {
     width: 300px;
     height: 300px;
     margin: 0 auto; /* 가운데 배치 */
-    
+
+}
+
+.share {
+    margin: 0 auto;
 }
