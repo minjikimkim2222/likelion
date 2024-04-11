@@ -11,9 +11,11 @@ public class ExceptionExam04 {
             System.out.println(10/i); // A 회사 두부 없음!
         } catch (Exception e){
             System.out.println("내가 알아서 다른 마트로 간다.");
+        } finally {
+            System.out.println("tryCatch로 심부름 완료!!");
         }
 
-        System.out.println("심부름 완료 !! ");
+//        System.out.println("심부름 완료 !! ");
     }
 
     public static void 심부름withThrows() throws ArithmeticException{
