@@ -1,4 +1,4 @@
-package org.day21.실습문제;
+package org.array;
 
 public class BankTest {
     public static void main(String[] args) {

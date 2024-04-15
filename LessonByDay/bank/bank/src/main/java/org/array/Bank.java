@@ -1,4 +1,4 @@
-package org.day21.실습문제;
+package org.array;
 
 public class Bank {
     private String bankName; // 은행 이름

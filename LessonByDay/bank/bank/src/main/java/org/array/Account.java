@@ -1,4 +1,4 @@
-package org.day21.실습문제;
+package org.array;
 
 public class Account {
     private String accountNumber; // 계좌번호; "123-456-789"

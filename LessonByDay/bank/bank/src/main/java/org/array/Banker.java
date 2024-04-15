@@ -1,4 +1,4 @@
-package org.day21.실습문제;
+package org.array;
 
 public class Banker {
     private String bankerName; // 은행원 이름
