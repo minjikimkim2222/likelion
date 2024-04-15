@@ -19,7 +19,7 @@ public class Banker {
 
     // 출금 승인
     public void approveWithdrawal(Account account, int amount) throws InsufficientFundsException{
-        account.withDrawal(amount);
+        account.withdrawal(amount);
         System.out.println("출금이 승인되었습니다. " + "출금 승인 담당자 : " + this.bankerName);
     }
 }

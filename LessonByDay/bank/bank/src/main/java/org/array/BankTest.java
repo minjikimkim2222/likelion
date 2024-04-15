@@ -29,8 +29,8 @@ public class BankTest {
         account2.deposit(100);
         System.out.println("account2의 계좌 잔액 : " + account2.getBalance());
         try {
-            account1.withDrawal(1000);
-            account2.withDrawal(4000); // 잔액보다 더 큰 금액을 인출한다면? 예외처리는?
+            account1.withdrawal(1000);
+            account2.withdrawal(4000); // 잔액보다 더 큰 금액을 인출한다면? 예외처리는?
         } catch(InsufficientFundsException e) {
             System.out.println(e.getMessage());
         }

@@ -18,7 +18,7 @@ public class Account {
     }
 
     // 출금 기능
-    public void withDrawal(int amount) throws InsufficientFundsException{
+    public void withdrawal(int amount) throws InsufficientFundsException{
         if (balance < amount) {
             //System.out.println("잔액이 부족합니다!");
             throw new InsufficientFundsException(this.accountNumber + " 의 잔액 "+ (amount - balance) +"만큼 부족합니다!");
