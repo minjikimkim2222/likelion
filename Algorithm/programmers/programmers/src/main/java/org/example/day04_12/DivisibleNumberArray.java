@@ -45,12 +45,12 @@ public class DivisibleNumberArray {
         int[] result2 = arr.solution(test2, divisor2);
 
         System.out.println("test 원본 arr print : ");
-        for (int temp : test2){
+        for (int temp : test){
             System.out.println(temp);
         }
 
         System.out.println("solution 결과 후");
-        for (int temp : result2){
+        for (int temp : result){
             System.out.println(temp);
         }
     }
