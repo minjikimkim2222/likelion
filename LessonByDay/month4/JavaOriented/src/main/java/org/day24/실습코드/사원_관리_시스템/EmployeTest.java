@@ -1,4 +1,7 @@
-package org.day24.실습코드;
+package org.day24.실습코드.사원_관리_시스템;
+
+import org.day24.실습코드.사원_관리_시스템.Employee;
+import org.day24.실습코드.사원_관리_시스템.EmployeeManager;
 
 public class EmployeTest {
     public static void main(String[] args) {

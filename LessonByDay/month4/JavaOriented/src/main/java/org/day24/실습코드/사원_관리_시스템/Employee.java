@@ -1,4 +1,4 @@
-package org.day24.실습코드;
+package org.day24.실습코드.사원_관리_시스템;
 
 import java.util.Objects;
 

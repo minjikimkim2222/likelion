@@ -1,4 +1,6 @@
-package org.day24.실습코드;
+package org.day24.실습코드.사원_관리_시스템;
+
+import org.day24.실습코드.사원_관리_시스템.Employee;
 
 import java.util.HashSet;
 
@@ -34,6 +36,7 @@ public class EmployeeManager {
             }
         }
         System.out.println("해당 사원은 존재하지 않습니다.");
+
     }
 
 }
