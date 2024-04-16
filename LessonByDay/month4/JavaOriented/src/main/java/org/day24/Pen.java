@@ -2,6 +2,7 @@ package org.day24;
 
 import java.util.Objects;
 
+// SetExam 관련 예제코드
 public class Pen {
     private String color;
     public Pen(String color){

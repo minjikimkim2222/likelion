@@ -3,6 +3,7 @@ package org.day24.실습코드.사원_관리_시스템;
 import org.day24.실습코드.사원_관리_시스템.Employee;
 
 import java.util.HashSet;
+import java.util.Iterator;
 
 public class EmployeeManager {
     // employee(사원)의 정보를 추가,삭제,검색할 수 있는 기능 구현 클래스
@@ -37,6 +38,18 @@ public class EmployeeManager {
         }
         System.out.println("해당 사원은 존재하지 않습니다.");
 
+    }
+
+    public void printAllEmployee(){
+        Iterator<Employee> iter = employeeHashSet.iterator();
+
+        while (iter.hasNext()){
+            Employee employee = iter.next();
+            System.out.print("id : " + employee.getId());
+            System.out.print(", name : " + employee.getName());
+            System.out.print(", department : " + employee.getDepartment());
+            System.out.println();
+        }
     }
 
 }

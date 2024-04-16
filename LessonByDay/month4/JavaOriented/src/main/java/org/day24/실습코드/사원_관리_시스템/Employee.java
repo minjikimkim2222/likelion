@@ -13,7 +13,7 @@ public class Employee {
         this.department = department;
     }
 
-    // get id, name
+    // getters
 
 
     public String getId() {
@@ -22,6 +22,10 @@ public class Employee {
 
     public String getName() {
         return name;
+    }
+
+    public String getDepartment() {
+        return department;
     }
 
     // id만 같다면, 두 객체가 같다고 판단하게끔 오버라이딩!
