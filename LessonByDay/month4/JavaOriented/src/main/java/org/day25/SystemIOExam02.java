@@ -9,12 +9,12 @@ public class SystemIOExam02 {
         // 2. 파일에 출력하는 프로그램을 작성해보세요.
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-            PrintWriter pw = new PrintWriter("test.txt");
+            PrintWriter pw = new PrintWriter("test.txt"); // 하이브리드 - 주인공 기능
 
             for (int i = 0; i < 5; i++) {
                 System.out.println("문자열을 입력해주세요 : ");
                 String str = br.readLine();
-                pw.println(str);
+                pw.println(str); // 파일에 지정된 문자열을 쓰고 + 줄바꿈을 추가! ; 하이브리드 - 데코 기능
             }
 
             // 문자열 리소스를 닫아줘야, 버퍼에 있던 내용을 출력해줬다.

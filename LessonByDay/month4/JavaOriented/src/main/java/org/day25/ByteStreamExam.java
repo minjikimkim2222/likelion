@@ -17,7 +17,9 @@ public class ByteStreamExam {
 
             int c;
             while ((c = in.read()) != -1) {
-                out.write(c); // read한 바이트수(c)만큼 파일에 write시킨다.
+                out.write(c);
+                // ReadFile.java --> read() - 읽어들인 바이트에 해당하는 정수값 반환
+                // FileOutputStream의 write(int b) - 정수값에 해당하는 바이트 wrtie
             }
         } catch (IOException e) {
             e.printStackTrace();
