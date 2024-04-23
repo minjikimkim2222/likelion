@@ -7,6 +7,8 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 public class ChatClient {
+    private static final int SERVER_PORT = 123;
+    private static final String SERVER_ADDRESS = "127.0.0.1";
     public static void main(String[] args) {
         // 아이디가 처음에 입력되게 하기 위해서, args[0]에서 읽어오는 것으로 구현해보자.
         if (args.length != 1){
@@ -14,7 +16,7 @@ public class ChatClient {
             System.exit(1); // 프로그램 강제 종료
         }
         int portNumber = 123;
-        try(Socket socket = new Socket("127.0.0.1", 123);
+        try(Socket socket = new Socket(SERVER_ADDRESS, SERVER_PORT);
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
