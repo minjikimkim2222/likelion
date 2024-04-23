@@ -30,7 +30,7 @@ public class ChatClient {
             // 키보드로부터 입력받은 내용을 출력하는 코드
             String msg = null;
             while ((msg = keyboard.readLine()) != null){
-                out.println(msg); // 키보드로부터 한줄 받아서 보냄
+                out.println(msg); // 키보드로부터 한줄 받아서, 서버에게 보냄
 
                 if ("./quit".equalsIgnoreCase(msg))
                     break;

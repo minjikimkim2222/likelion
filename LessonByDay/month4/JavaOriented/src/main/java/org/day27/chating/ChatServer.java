@@ -7,17 +7,19 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public class ChatServer {
     public static void main(String[] args) {
         int portNumber = 123;
-        // 각 clientId(key)로 사용해, 각 클라이언트의 출력스트림(PrintWriter)를 값(value)로 관리할 수 있게끔!
-        Map<String, PrintWriter> chatClients = new HashMap<>();
 
         // 1. 서버 소켓 생성
         try (ServerSocket serverSocket = new ServerSocket(portNumber);) {
             System.out.println("서버가 포트번호 " + portNumber + "에 연결되었습니다.");
+
+            // 각 clientId(key)로 사용해, 각 클라이언트의 출력스트림(PrintWriter)를 값(value)로 관리할 수 있게끔!
+            Map<String, PrintWriter> chatClients = new HashMap<>();
 
             while (true) {
                 // 2. accept()를 통해서 소켓을 얻어옴. (여러 개의 클라이언트와 접속할 수 있도록 구현)
