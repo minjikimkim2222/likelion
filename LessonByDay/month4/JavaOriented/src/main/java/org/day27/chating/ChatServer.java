@@ -45,8 +45,10 @@ class ChatThread extends Thread {
         this.chatClients = chatClients;
 
         // 클라이언트가 생성될 때, 클라이언트로부터 아이디를 불러오게 하고 싶다.
-        try (PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+        try (PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true); // 각 클라이언트에 쓰기 위한 통로
              ){
+            in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            // Client가 접속하자마자 id를 보낸다는 약속!
             this.clientId = in.readLine();
             // 이때.. 모든 사용자에게 id님이 입장했다라는 정보를 알려줌
             broadcast(clientId + "님이 입장하셨습니다.");
