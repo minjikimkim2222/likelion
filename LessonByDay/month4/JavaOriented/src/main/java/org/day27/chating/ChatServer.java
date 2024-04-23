@@ -40,13 +40,14 @@ class ChatThread extends Thread {
     private Map<String, PrintWriter> chatClients; // 다른 클라이언트들에게도 정보를 보내기 위해 해당 hashMap 자료구조 need
 
     BufferedReader in = null;
+    PrintWriter out;
     public ChatThread(Socket clientSocket, Map<String, PrintWriter> chatClients){
         this.clientSocket = clientSocket;
         this.chatClients = chatClients;
 
         // 클라이언트가 생성될 때, 클라이언트로부터 아이디를 불러오게 하고 싶다.
-        try (PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true); // 각 클라이언트에 쓰기 위한 통로
-             ){
+        try {
+            PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true); // 각 클라이언트에 쓰기 위한 통로
             in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             // Client가 접속하자마자 id를 보낸다는 약속!
             this.clientId = in.readLine();
