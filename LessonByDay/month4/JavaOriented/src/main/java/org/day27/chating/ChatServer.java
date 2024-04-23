@@ -71,6 +71,8 @@ class ChatThread extends Thread {
 
         try {
             while ((msg = in.readLine()) != null){
+                if ("/quit".equalsIgnoreCase(msg)) // 클라이언트가 /quit 입력하면 그만!
+                    break;
                 broadcast(clientId + " : " + msg);
             }
         } catch (Exception e){
