@@ -2,7 +2,7 @@ package org.day29.JavaAPI;
 
 import java.util.function.*;
 
-public class RambdaAPIEx01 {
+public class RamdaAPIEx01 {
     public static void main(String[] args) {
         // Predicate
         // 조건을 테스트하는데 사용.. boolean값 반환
