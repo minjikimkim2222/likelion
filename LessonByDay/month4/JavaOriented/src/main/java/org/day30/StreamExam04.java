@@ -30,6 +30,7 @@ public class StreamExam04 {
 
         System.out.println();
         // 위 배열을 내림차순으로 정렬해 출력 (java 제네릭 타입엔 기본형인 int가 아닌 Integer가 와야 합니다!!! )
+        // Integer에 compareTo 함수가 오버라이드되어 있으니!
         Arrays.stream(iarr).mapToObj(num -> Integer.valueOf(num))
                 .sorted(Comparator.reverseOrder()).forEach(num -> System.out.print(num + " "));
 
