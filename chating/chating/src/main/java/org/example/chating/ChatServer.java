@@ -49,12 +49,14 @@ class UserManager extends Thread {
     private String nickName;
     private PrintWriter out = null;
     private BufferedReader in = null;
+    private int currentRoomId; // 현재 사용자가 위치한 채팅방 ID 저장 변수
 
     public UserManager(Socket clientSocket) {
         this.clientSocket = clientSocket;
         this.rooms = ChatServer.getRooms();
 
         // 연결된 클라이언트로부터 사용자의 닉네임을 받아, 메세지와 사용자 IP주소 출력
+        // 여기서 입출력통로인 in, out 이 초기화되었다!
         try {
             in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             out = new PrintWriter(clientSocket.getOutputStream(), true);
@@ -84,7 +86,7 @@ class UserManager extends Thread {
                     System.out.println("현재 생성된 모든 방의 목록 : ");
 
                     synchronized (rooms) { // 각 UserManager 쓰레드별로 접근할 수 있으니, 동기화 처리해주기
-                        if (rooms.size() == 0) {
+                        if (rooms.isEmpty()) {
                             System.out.println("현재 존재하는 채팅방은 없습니다.");
                         }
 
@@ -98,9 +100,10 @@ class UserManager extends Thread {
                         int roomId = rooms.size() + 1; // 방 id
                         rooms.put(roomId, new ArrayList<>());
 
-                        // ** 클라이언트를 생성된 새 방에 추가 **
-                        User user = new User(clientSocket, nickName);
-                        rooms.get(roomId).add(user);
+//                        // ** 클라이언트를 생성된 새 방에 추가 ** ------->>>>>>> /create 에서는 방 생성만 하게끔 수정!
+//                        User user = new User(out, nickName);
+//                        rooms.get(roomId).add(user);
+//                        this.currentRoomId = roomId;
 
                         System.out.println("방 번호 [" + roomId + "]가 생성되었습니다.");
                     }
@@ -111,8 +114,10 @@ class UserManager extends Thread {
                         if (rooms.containsKey(roomId)) {
                             // 특정 사용자가 특정 채팅방에 들어가게 하기
                             // 방에 입장하면, "닉네임이 방에 입장했습니다." 메세지 전달
-                            User user = new User(clientSocket, nickName);
-                            rooms.get(roomId).add(user);
+                            User user = new User(out, nickName);
+                            List<User> users = rooms.get(roomId);
+                            users.add(user);
+                            this.currentRoomId = roomId; // 들어간 방의 roomId를 설정!
                             out.println(nickName + "님이 방에 입장하셨습니다.");
                         } else {
                             out.println("채팅방 id : " + roomId + "는 존재하지 않습니다.");
@@ -156,6 +161,9 @@ class UserManager extends Thread {
 
                     System.out.println("접속을 종료합니다.");
                     break; // while문 탈출
+                } else if (command.equalsIgnoreCase("/msg")){
+                    String msg = inputLine.substring(5); // "/msg " 제외한 메세지 부분 문자열
+                    sendMessageToCurrentRoom(msg);
                 } else {
                     System.out.println("알 수 없는 명령어입니다. 다시 입력해주세요");
                     commandCall();
@@ -173,7 +181,25 @@ class UserManager extends Thread {
         out.println("방 목록 보기 : /list");
         out.println("방 생성 : /create");
         out.println("방 입장 : /join [방 번호]");
+        out.println("내 채팅방 사람들에게만 메세지 보내기 : /msg");
         out.println("방 나가기 : /exit");
         out.println("접속종료 : /bye");
+    }
+
+    private void sendMessageToCurrentRoom(String msg){
+        // 내가 위치한 채팅방 사람들에게만 메세지 보낼 거다!!!!!
+        synchronized (rooms) {
+            List<User> users = rooms.get(currentRoomId);
+
+            if (users != null){
+                for (User user : users){
+
+                    if (!user.getNickName().equals(nickName)) { // 나 자신에게는 메세지 보내면 안된다.
+                        user.sendMessage(msg);
+                        user.getOut().flush();
+                    }
+                }
+            }
+        }
     }
 }
