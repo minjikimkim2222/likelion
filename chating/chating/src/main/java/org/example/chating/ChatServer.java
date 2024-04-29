@@ -50,6 +50,7 @@ class UserManager extends Thread {
     private PrintWriter out = null;
     private BufferedReader in = null;
     private int currentRoomId; // 현재 사용자가 위치한 채팅방 ID 저장 변수
+    private static List<String> temporaryUserList = new ArrayList<>(); // 임시 사용자 리스트; // 아이디 중복 여부 체크 저장 변수
 
     public UserManager(Socket clientSocket) {
         this.clientSocket = clientSocket;
@@ -60,7 +61,23 @@ class UserManager extends Thread {
         try {
             in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             out = new PrintWriter(clientSocket.getOutputStream(), true);
-            this.nickName = in.readLine();
+
+            // 중복된 닉네임 확인
+            String inputNickName = null;
+            while (true) {
+                inputNickName = in.readLine();
+
+                if (isNicknameAlreadyUsed(inputNickName)) {
+                    out.println("이미 사용중인 닉네임입니다. 다른 닉네임을 선택해주세요!");
+                } else {
+                    // id가 유일하다!
+                    break;
+                }
+            }
+
+            temporaryUserList.add(inputNickName);
+
+            this.nickName = inputNickName;
             System.out.println(nickName + "닉네임의 사용자가 연결했습니다.");
             System.out.println("IP주소 : " + clientSocket.getInetAddress().getHostAddress());
         } catch (IOException e) {
@@ -265,4 +282,19 @@ class UserManager extends Thread {
             }
         }
     } // whisper
+
+    // 중복된 닉네임 확인해주는 메서드
+    private boolean isNicknameAlreadyUsed(String nickName){
+
+        System.out.println("받은 닉네임 : " + nickName);
+
+        for (String str : temporaryUserList){
+            if (str.equals(nickName)) {
+                System.out.println("현재 str : " + str);
+                return true;
+            }
+        }
+
+        return false; // 중복된 닉네임 없음
+    }
 }
