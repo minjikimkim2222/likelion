@@ -100,11 +100,6 @@ class UserManager extends Thread {
                         int roomId = rooms.size() + 1; // 방 id
                         rooms.put(roomId, new ArrayList<>());
 
-//                        // ** 클라이언트를 생성된 새 방에 추가 ** ------->>>>>>> /create 에서는 방 생성만 하게끔 수정!
-//                        User user = new User(out, nickName);
-//                        rooms.get(roomId).add(user);
-//                        this.currentRoomId = roomId;
-
                         System.out.println("방 번호 [" + roomId + "]가 생성되었습니다.");
                     }
                 } else if (command.equalsIgnoreCase("/join")) { // 방 입장
@@ -118,12 +113,15 @@ class UserManager extends Thread {
                             List<User> users = rooms.get(roomId);
                             users.add(user);
                             this.currentRoomId = roomId; // 들어간 방의 roomId를 설정!
-                            out.println(nickName + "님이 방에 입장하셨습니다.");
+                            out.println(nickName + "님이 [ "+ currentRoomId +" ]방에 입장하셨습니다."); // 내 out통로에도 출력해주고
+                            sendMessageToCurrentRoom(nickName + "님이 [ "+ currentRoomId +" ]방에 입장하셨습니다.");
+                            // 나랑 같은 채팅방 사람들에게도 알리고.. (모든 채팅방 사람들에게 알리는 건 - broadcast 기능)
                         } else {
                             out.println("채팅방 id : " + roomId + "는 존재하지 않습니다.");
                         }
                     }
-                } else if (command.equalsIgnoreCase("/exit")) {
+                }
+                else if (command.equalsIgnoreCase("/exit")) {
                     // "닉네임이 방을 나갔습니다" 메세지와 함께 로비로 이동
                     // 방에 아무도 없다면, 해당 방을 삭제하고 "방 번호 [방번호]가 삭제되었습니다."를 출력
                     synchronized (rooms) {
@@ -145,7 +143,10 @@ class UserManager extends Thread {
                         } // for
 
                         if (isUserLeftRoom) {
-                            out.println(nickName + "님이 방을 나갔습니다.");
+                            String msg = nickName + " 님이 방을 나갔습니다.";
+                            out.println(msg);
+                            sendMessageToCurrentRoom(msg); // 나뿐만 아니라 나와 같은 채팅방 사람들에게도 알리기..
+
                             // 방이 비어있다면, 방 삭제!! -> Collection removeIf 함수 이용해서 깔끔해짐
                             rooms.entrySet().removeIf(entry -> entry.getValue().isEmpty());
                         } else
@@ -164,7 +165,16 @@ class UserManager extends Thread {
                 } else if (command.equalsIgnoreCase("/msg")){
                     String msg = inputLine.substring(5); // "/msg " 제외한 메세지 부분 문자열
                     sendMessageToCurrentRoom(msg);
-                } else {
+                } else if (command.equalsIgnoreCase("/broad")){
+                    String msg = inputLine.substring(7) ; // "/broad " 제외한 메세지 부분 문자열
+                    broadcastMsg(msg);
+                } else if (command.equalsIgnoreCase("/whisper")){ // 귓말 기능
+                    String to = words[1]; // 귓말 보낼 대상
+                    String msg = inputLine.substring(10 + to.length()); // 귓말 보낼 메세지
+
+                    whisper(msg, to);
+                }
+                else {
                     System.out.println("알 수 없는 명령어입니다. 다시 입력해주세요");
                     commandCall();
                 }
@@ -182,6 +192,8 @@ class UserManager extends Thread {
         out.println("방 생성 : /create");
         out.println("방 입장 : /join [방 번호]");
         out.println("내 채팅방 사람들에게만 메세지 보내기 : /msg");
+        out.println("모든 사람들에게 메세지 보내기 : /broad");
+        out.println("귓말 보내기 : /whisper [닉네임] [메세지]");
         out.println("방 나가기 : /exit");
         out.println("접속종료 : /bye");
     }
@@ -199,7 +211,58 @@ class UserManager extends Thread {
                         user.getOut().flush();
                     }
                 }
+            } // if문
+        }
+    }
+
+    private void broadcastMsg(String msg){ // 모든 채팅방에 위치한 유저에게 메세지 보내기
+        // test/HashMapEtc.java 테스트 코드 참고
+        for (List<User> users : rooms.values()){
+            for (User user : users){
+                user.sendMessage(msg);
+                user.getOut().flush();
             }
         }
     }
+
+    private void whisper(String msg, String to) { // 귓말 기능
+        // 예외처리
+        // 나자신에게는 귓말 못 보냄
+        // 없는 유저에게는 귓말 못 보냄
+        // 나랑 '같은' 채팅방에 위치한 유저들에게만, 귓말 보낼 수 있음..
+
+        synchronized (rooms) {
+            List<User> users = rooms.get(currentRoomId);
+
+            if (users != null) {
+                boolean userFound = false; // 대상 사용자를 찾았는지 여부
+
+                for (User user : users) {
+                    if (user.getNickName().equals(nickName)) { // 나 자신에게는 귓말 보내지 않는다.
+                        continue;
+                    }
+
+                    if (user.getNickName().equals(to)) { // 내가 귓말 보낼 대상자랑 일치한다면...
+                        PrintWriter pw = user.getOut();
+
+                        if (pw != null) {
+                            pw.println(msg); // 메세지 전송
+                            user.getOut().flush();
+                            userFound = true;
+                            break; // 대상 사용자를 찾았으므로 반복문 종료
+                        } else {
+                            out.println(to + "닉네임을 가진 유저가 " + currentRoomId + "번 방에 존재하지 않습니다.");
+                            return;
+                        }
+                    }
+                } // for문
+
+                if (!userFound) {
+                    out.println(to + "닉네임을 가진 유저가 " + currentRoomId + "번 방에 존재하지 않습니다.");
+                }
+            } else {
+                out.println(to + "닉네임을 가진 유저가 " + currentRoomId + "번 방에 존재하지 않습니다.");
+            }
+        }
+    } // whisper
 }
