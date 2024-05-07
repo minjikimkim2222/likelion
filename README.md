@@ -8,6 +8,7 @@
 각 폴더는 다음과 같은 내용을 담고 있습니다.
 - ```Algorithm``` : 회고시간에 푼 알고리즘 문제
 - ```LessonByDay``` : 날짜별로 푼 실습문제
+- ```SQL``` : /src/resources/ 디렉토리에 *.sql 파일 존재
 - ```TddEx``` : 테스트 코드 만드는 법
 - ```codelion-VOD``` : VOD로 배운, HTML/CSS 기초, JS 기초, JS 실습 코드 모음
 - ```html-css-js-test``` : html,css,js를 이용해 만든 투두리스트
