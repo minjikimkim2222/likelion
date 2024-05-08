@@ -19,9 +19,11 @@ public class DBUtil {
         return conn;
     }
 
-    public static Connection getConnection(String dbUrl, String user, String password){
+    public static Connection getConnection(String dbUrl, String user, String password) throws Exception{
         Connection conn = null;
 
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        conn = DriverManager.getConnection(dbUrl, user, password);
         return conn;
     }
 
