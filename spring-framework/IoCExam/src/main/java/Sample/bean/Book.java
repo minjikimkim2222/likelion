@@ -1,5 +1,8 @@
 package Sample.bean;
 
+import org.springframework.stereotype.Component;
+
+@Component("b")
 public class Book {
     private String title;
     private int price;

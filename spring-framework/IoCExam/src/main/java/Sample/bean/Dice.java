@@ -1,5 +1,8 @@
 package Sample.bean;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Dice {
     private int face;
 
@@ -13,7 +16,7 @@ public class Dice {
     }
 
     public int getNumber(){
-        return (int)(Math.random() * face) + 1; // 1 ~ 6 중 랜덤 값 리턴
+        return (int)(Math.random() * face) + 1; // 1 ~ face 중 랜덤 값 리턴
     }
 
 }
