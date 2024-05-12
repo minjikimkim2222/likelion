@@ -5,6 +5,9 @@ public class User {
     private String email;
     private String password;
 
+    public User(){
+        System.out.println("User() 객체 생성 !!");
+    }
     public String getName() {
         return name;
     }

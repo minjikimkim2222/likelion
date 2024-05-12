@@ -5,6 +5,10 @@ import org.example.iocexample.domain.User;
 import java.util.List;
 
 public class UserDaoImpl implements UserDao{
+
+    public UserDaoImpl(){
+        System.out.println("UserDaoImpl() 객체 생성 !!");
+    }
     @Override
     public User getUser(String email) {
         return null;
