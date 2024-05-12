@@ -2,13 +2,18 @@ package org.example.iocexample.controller;
 
 import org.example.iocexample.domain.User;
 import org.example.iocexample.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class UserController {
+
     private UserService userService;
 
     public UserController(){
         System.out.println("UserController() 객체 생성 !!");
     }
+    @Autowired
     public UserController(UserService userService){
         System.out.println("UserController(userService) 객체 생성 !!");
         this.userService = userService;

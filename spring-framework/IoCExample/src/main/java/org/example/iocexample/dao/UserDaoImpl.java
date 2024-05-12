@@ -1,9 +1,10 @@
 package org.example.iocexample.dao;
 
 import org.example.iocexample.domain.User;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
-
+@Component
 public class UserDaoImpl implements UserDao{
 
     public UserDaoImpl(){

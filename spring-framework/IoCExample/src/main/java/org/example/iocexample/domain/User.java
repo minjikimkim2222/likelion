@@ -1,5 +1,8 @@
 package org.example.iocexample.domain;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class User {
     private String name;
     private String email;

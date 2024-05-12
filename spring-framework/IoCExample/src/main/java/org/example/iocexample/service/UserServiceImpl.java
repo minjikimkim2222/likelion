@@ -2,7 +2,10 @@ package org.example.iocexample.service;
 
 import org.example.iocexample.dao.UserDao;
 import org.example.iocexample.domain.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class UserServiceImpl implements UserService{
     private UserDao userDao;
 
@@ -11,6 +14,7 @@ public class UserServiceImpl implements UserService{
     }
 
     // 의존성 주입을 위해, 'UserServiceImpl객체'에 생성자 생성
+    @Autowired
     public UserServiceImpl(UserDao userDao){
         System.out.println("UserServiceImpl(userDao) 객체 생성 !!");
         this.userDao = userDao;
