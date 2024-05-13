@@ -6,12 +6,8 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 //@Component
-@Repository
-public class UserDaoImpl implements UserDao{
-
-    public UserDaoImpl(){
-        System.out.println("UserDaoImpl() 객체 생성 !!");
-    }
+@Repository("oliviaDao")
+public class UseroliviaDaoImpl implements UserDao{
     @Override
     public User getUser(String email) {
         return null;
@@ -24,6 +20,6 @@ public class UserDaoImpl implements UserDao{
 
     @Override
     public void addUser(User user) {
-        System.out.println(user + "의 정보가 잘 저장되었습니다.");
+        System.out.println(user + "의 정보를 oliviaDAO를 통해 잘 저장했습니다.");
     }
 }
