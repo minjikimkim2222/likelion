@@ -18,6 +18,7 @@ public class UserRun {
 //        UserController userController = context.getBean(UserController.class);
 //        userController.joinUser();
 
+        // 방법 2. @Component, @ComponentScan main..
         System.out.println("applicationContext 생성 전...");
         ApplicationContext context = new AnnotationConfigApplicationContext(UserConfig2.class);
         System.out.println("applicationContext 생성 후...");

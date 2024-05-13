@@ -9,12 +9,12 @@ import org.springframework.stereotype.Component;
 public class UserServiceImpl implements UserService{
     private UserDao userDao;
 
-    public UserServiceImpl(){
-        System.out.println("UserServiceImpl() 객체 생성 !!");
-    }
+//    public UserServiceImpl(){
+//        System.out.println("UserServiceImpl() 객체 생성 !!");
+//    }
 
     // 의존성 주입을 위해, 'UserServiceImpl객체'에 생성자 생성
-    @Autowired
+    //@Autowired
     public UserServiceImpl(UserDao userDao){
         System.out.println("UserServiceImpl(userDao) 객체 생성 !!");
         this.userDao = userDao;

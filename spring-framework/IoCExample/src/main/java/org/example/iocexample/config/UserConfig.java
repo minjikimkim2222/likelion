@@ -21,7 +21,7 @@ public class UserConfig {
 //    }
 //
 //    @Bean
-//    public UserDaoImpl userDaoImpl(){
+//    public UserDao userDao(){
 //        return new UserDaoImpl();
 //    }
 //
@@ -31,7 +31,7 @@ public class UserConfig {
 ////    }
 //
 //    @Bean
-//    public UserServiceImpl userServiceImpy2(UserDao userDao){
+//    public UserService userService2(UserDao userDao){
 //        return new UserServiceImpl(userDao);
 //    }
 //
