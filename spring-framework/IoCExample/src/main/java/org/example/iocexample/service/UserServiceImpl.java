@@ -19,9 +19,9 @@ public class UserServiceImpl implements UserService{
     // 의존성 주입을 위해, 'UserServiceImpl객체'에 생성자 생성
     //@Autowired
 
-    public UserServiceImpl(/*@Qualifier("useroliviaDaoImpl")*/ UserDao oliviaDao){
+    public UserServiceImpl(@Qualifier("useroliviaDaoImpl") UserDao userDao){
         System.out.println("UserServiceImpl(userDao) 객체 생성 !!");
-        this.userDao = oliviaDao;
+        this.userDao = userDao;
     }
     @Override
     public void joinUser(User user) {
