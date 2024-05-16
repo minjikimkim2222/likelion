@@ -1,4 +1,4 @@
-package org.example.springJdbc02;
+package org.example.springJdbc02.Book;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;

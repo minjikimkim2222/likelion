@@ -1,4 +1,4 @@
-package org.example.springJdbc02;
+package org.example.springJdbc02.Book;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
