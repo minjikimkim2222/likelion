@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaf Example</title>
+</head>
+<body>
+    <h1>example 페이지입니다!!</h1>
+
+    <!-- 변수 표현식 -->
+    <p>userName: <span th:text="${username}"></span></p>
+
+    <!-- 선택변수 표현식 -->
+    <div th:object="${languages}">
+        <p th:text="*{[0]}"></p>
+        <p th:text="*{[1]}"></p>
+        <p th:text="*{[2]}"></p>
+    </div>
+
+    <!-- 조건에 따라 다르게 표시 -->
+    <div th:if="${isAdmin}">
+        <p><span th:text="${username}"></span>님은 관리자입니다.</p>
+    </div>
+    <div th:unless="${isAdmin}">
+        <p><span th:text="${username}"></span>님은 관리자가 아닙니다.</p>
+    </div>
+
+    <!-- 링크 URL 표현식 ; ExamController든 MyController든 상관없다..-->
+    <a th:href="@{/aboutMe}">aboutMe 페이지로!</a>
+
+    <!--리터럴 값 -->
+    <p th:text=" 'Welcome, ' + ${username} + '!'">Welcome message</p>
+
+    <!-- 메세지 표현식 -->
+        <!-- application.yml에서 메세지 설정하고 가기..-->
+        <!-- #{ } 은 application.yml에서 정의한, messages.properties에서 값을 찾을 것 .! -->
+    <p th:text="#{welcome.message}">Welcome..</p>
+    <p th:text="#{product.name}"></p>
+        <!-- 만일, 해당 나라 언어에 해당하는 메세지 파일이 존재하지 않는 경우.. 기본 설정 파일로!-->
+</body>
+</html>

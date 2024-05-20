@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1 th:text="${welcomeMsg}"></h1>
+
+    <!-- each는 반복자 역할을 하며, 리스트나 배열 등을 순회할 때 사용 ..-->
+    <ul>
+        <li th:each=" getItem : ${itemList}"
+            th:text=" 'Name: ' + ${getItem.name} + ', Price : ' + ${getItem.price}"></li>
+    </ul>
+
+    <!-- 정의해준 footer 추가.. include="파일명 :: 지정한 foot이름" -->
+    <div th:include="common/footer :: footer"></div>
+</body>
+</html>

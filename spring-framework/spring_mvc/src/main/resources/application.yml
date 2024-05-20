@@ -2,5 +2,8 @@ spring:
   application:
     name:spring_mvc
 
-
+  messages:
+    basename: messages
+    encoding: UTF-8
+    cache-duration: 0
 

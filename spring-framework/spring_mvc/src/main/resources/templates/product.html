@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>products</title>
+</head>
+<body>
+    <h1 th:text="'product 제품들을 출력해주자!'"></h1>
+
+    <ul>
+        <li th:each="product : ${productList}" th:text="'name : ' + ${product.name}"></li>
+    </ul>
+
+    <footer th:include="common/footer :: footer"></footer>
+</body>
+</html>
