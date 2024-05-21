@@ -33,12 +33,10 @@ public class MyController {
     }
 
     @GetMapping("greeting")
-    public String greet(@RequestParam(name="name", required = false, defaultValue = "min") String name,
+    public String greet(@RequestParam(name="nickName", required = false, defaultValue = "min") String name,
                         @RequestParam(name="age", defaultValue = "20") int age, Model model){
-        // http://localhost:8080/greeting?name=minjiki2&age=23
-        // 쿼리문자열 : ?name=minjiki2@age=23
-        System.out.println("name : " + name); // 콘솔에 name : minjiki2
-        System.out.println("age : " + age); // 콘솔에 age : 23 이 찍힌 것을 확인할 수 있었음..
+        // http://localhost:8080/greeting?nickName=minjiki2
+        // http://localhost:8080/greeting?nickName=minjiki2&age=23
 
         // 이때 얻은 값을..view에 넘겨서 쓰고 싶어
         // 컨트롤러에서 model을 생성해 얻은 값을 넣어주면, view에서 컨트롤러에서 넣은 값을 model을 통해 접근할 수 있다..
@@ -46,18 +44,19 @@ public class MyController {
         //  model이 add된 특정 url("greeting")에서만 유지된다.. 만일, request url이 달라져도 필요한 값이면, session scope에 저장해주면 됨
 
         model.addAttribute("name", name); // model Key-"name", value = name - minjiki2
-
+        model.addAttribute("age", age);
         return "greeting";
     }
 
     @GetMapping("greeting-mv")
-    public ModelAndView greet(@RequestParam String name, ModelAndView modelAndView){
-        System.out.println(name);
+    public ModelAndView greet(@RequestParam String name, @RequestParam("age") int age, ModelAndView modelAndView){
+        // http://localhost:8080/greeting-mv?name=modelAndView&age=24
 
-        // modelAndView는 비슷한데, model과 view를 한꺼번에 가진 객체를 리턴해주는 방식,,
         modelAndView.addObject("name", name);
+        modelAndView.addObject("age", age);
         modelAndView.setViewName("greeting");
 
+        // modelAndView는 비슷한데, model과 view를 한꺼번에 가진 객체를 리턴해주는 방식,,
         return modelAndView;
     }
 }

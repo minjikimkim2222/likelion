@@ -49,4 +49,15 @@ public class ExamController {
 
         return "exam";
     }
+
+    @GetMapping("/list")
+    public String showList(Model model){
+        List<String> items = Arrays.asList(
+          "Item one", "Item two", "Item three", "Item four", "Item five",
+                "Item six", "Item seven", "Item eight", "Item nine", "Item ten"
+        );
+
+        model.addAttribute("items", items);
+        return "list";
+    }
 }

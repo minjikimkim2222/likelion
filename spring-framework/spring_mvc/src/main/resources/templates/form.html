@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>form</title>
+</head>
+<body>
+<h1>폼 검증 예제입니다.</h1>
+
+<!-- form이 제출되면, 브라우저는 POST request를 /submitForm URL로 동적으로 보내집니다. -->
+<!-- 폼이 제출될 때, 각 입력필드의 'name' 속성값은, 쿼리파라미터로 데이터가 전송됨 !!!
+    전송된 쿼리파라미터는 Controller에서 @RequestParam나 @ModelAttribute으로 잡아주면 되고,
+    개발자도구 - payload에서 전달된 데이터값 확인 가능 -->
+<form method="post" th:action="@{/submitForm}" th:object="${userForm}">
+    <label for="username"> username : </label>
+    <input id="username" th:field="*{username}" type="text" name="username"> <br>
+    <!-- username 필드의 오류 메시지 표시 -->
+    <div th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+
+    <label for="password"> password : </label>
+    <input id="password" th:field="*{password}" type="password" name="password"> <br>
+    <!-- password 필드의 오류 메시지 표시 -->
+    <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+
+    <button type="submit">Sumbit</button>
+</form>
+</body>
+</html>
