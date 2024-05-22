@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>친구 정보 수정 페이지</title>
+</head>
+<body>
+  <h1>친구 정보 수정 페이지입니다!!</h1>
+
+  <form method="post" th:action="@{/friend/edit}" th:object="${editFriend}">
+      <label for="id">id : </label>
+      <input id="id" type="text" name="id" th:field="*{id}">
+      <div th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></div>
+      <br>
+
+      <label for="name">name : </label>
+      <input id="name" type="text" name="name" th:field="*{name}">
+      <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+      <br>
+
+      <label for="email">email : </label>
+      <input id="email" type="email" name="email" th:field="*{email}">
+      <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+      <br>
+
+      <button type="submit">Submit</button>
+  </form>
+</body>
+</html>

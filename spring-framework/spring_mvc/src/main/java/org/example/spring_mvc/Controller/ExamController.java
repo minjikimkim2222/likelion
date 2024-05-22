@@ -5,12 +5,23 @@ import org.example.spring_mvc.domain.Product;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.Arrays;
 import java.util.List;
 
 @Controller
 public class ExamController {
+
+    @GetMapping("/viewResolver")
+    public String testViewResolver(){
+        return "my-prefix";
+    }
+    @GetMapping("/guest/{name}")
+    public String guest(@PathVariable String name){
+        System.out.println(name);
+        return "redirect:/datetime";
+    }
     @GetMapping("/welcome")
     public String welcome(Model model) {
         model.addAttribute("welcomeMsg", "Welcome to our great website !!");

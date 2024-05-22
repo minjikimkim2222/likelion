@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+    <title>친구 정보 수정 페이지</title>
+</head>
+<body>
+    <h1>친구 정보 수정 페이지입니다 !!</h1>
+
+    <ul>
+        <li th:each="friend : ${friends}">
+            <th:block>
+                <span>id : <span th:text="${friend.id}"></span></span><br/>
+                <span>name : <span th:text="${friend.name}"></span></span><br/>
+                <span>email : <span th:text="${friend.email}"></span></span>
+            </th:block>
+        </li>
+    </ul>
+
+</body>
+</html>
