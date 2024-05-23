@@ -1,10 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>게시글 등록 폼</title>
 </head>
 <body>
-$END$
+    <div>
+        <div>
+            <h2>Create a New Board</h2>
+        </div>
+        <div>
+            <form method="post" th:action="@{/writeform}" th:object="${board}">
+                <label for="name">Name :</label> <br>
+                <input id="name" type="text" th:field="*{name}">
+                <div th:if="${#fields.hasErrors('name')}" style="color:red;">
+                    <span th:errors="*{name}"></span>
+                </div>
+                <br><br>
+
+                <label for="title">Title :</label> <br>
+                <input id="title" type="text" th:field="*{title}">
+                <div th:if="${#fields.hasErrors('title')}" style="color:red;">
+                    <span th:errors="*{title}"></span>
+                </div>
+                <br><br>
+
+                <label for="content">Content :</label> <br>
+                <input id="content" type="text" th:field="*{content}" style="height: 200px;">
+                <div th:if="${#fields.hasErrors('content')}" style="color:red;">
+                    <span th:errors="*{content}"></span>
+                </div>
+                <br><br>
+
+                <label for="password">Password :</label> <br>
+                <input id="password" type="password" th:field="*{password}">
+                <div th:if="${#fields.hasErrors('password')}" style="color:red;">
+                    <span th:errors="*{password}"></span>
+                </div>
+                <br><br>
+                <button type="submit" style="width:140px; background-color:#81c147; color:white; border:0; padding: 5px">Create</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

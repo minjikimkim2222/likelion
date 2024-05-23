@@ -1,10 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>게시글 수정 페이지</title>
 </head>
 <body>
-$END$
+    <div>
+        <h2>Update Board</h2>
+
+        <form method="post" th:action="@{/updateform}" th:object="${board}">
+            <!-- id는 안보이지만, board에 매핑시켜야 올바른 id값을 가져올 수 있다 -->
+            <label for="id"></label>
+            <input id="id" type="hidden" th:field="*{id}">
+
+            <label for="name">Name : </label> <br>
+            <input id="name" type="text" th:field="*{name}">
+            <br><br>
+
+            <label for="title">Title : </label><br>
+            <input id="title" type="text" th:field="*{title}">
+            <br><br>
+
+            <label for="content"></label>Content : <br>
+            <input id="content" type="text" th:field="*{content}" style="height: 200px;">
+            <br><br>
+
+            <label for="password"></label>Password (for validation) : <br>
+            <input id="password" type="password" th:field="*{password}">
+            <br><br>
+
+            <button type="submit" style="width:140px; background-color:#81c147; color:white; border:0; padding: 5px">
+                Update</button>
+
+            <!-- 비밀번호가 틀렸을 때 메시지 표시 -->
+            <div th:if="${param.errorMsg}">
+                <span style="color:red;">비밀번호가 틀렸습니다. 다시 입력해주세요.</span>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

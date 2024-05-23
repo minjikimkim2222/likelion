@@ -1,10 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>게시글 삭제 폼</title>
 </head>
 <body>
-$END$
+    <div>
+        <h1>Delete Board</h1>
+
+        <form method="post" th:action="@{/deleteform}" th:object="${board}">
+            <label for="password">Password : </label> <br>
+            <input id="password" type="password" th:field="*{password}">
+            <!-- id 또한 board에 binding시켜야 되지만, 보여질 필요는 없기에.. -- hidden 속성 -->
+            <label for="id"></label> <br>
+            <input id="id" type="hidden" th:field="*{id}">
+            <br><br>
+
+            <button type="submit" style="width:140px; background-color:#81c147; color:white; border:0; padding: 5px">Delete</button>
+
+            <!-- 비밀번호가 틀렸을 때 메시지 표시 -->
+            <div th:if="${param.errorMsg}">
+                <span style="color:red;">비밀번호가 틀렸습니다. 다시 입력해주세요.</span>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
