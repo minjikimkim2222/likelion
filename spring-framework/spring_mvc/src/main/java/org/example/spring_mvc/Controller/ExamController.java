@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Arrays;
 import java.util.List;
@@ -20,6 +21,12 @@ public class ExamController {
     @GetMapping("/guest/{name}")
     public String guest(@PathVariable String name){
         System.out.println(name);
+        return "redirect:/datetime";
+    }
+
+    @GetMapping("/userTest")
+    public String test(@RequestParam(name = "id") String userId){
+        System.out.println("userId : " + userId);
         return "redirect:/datetime";
     }
     @GetMapping("/welcome")

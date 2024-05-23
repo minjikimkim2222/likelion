@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>친구 목록 조회</title>
+    <link rel="stylesheet" th:href="@{/css/friend.css}">
+</head>
+<body>
+    <h1>친구 목록 조회페이지입니다 !! </h1>
+<!--    <p th:text="${friends}"></p>-->
+    <table th:if="${not #lists.isEmpty(friends)}">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="friend : ${friends}">
+                <td th:text="${friend.id}">ID</td>
+                <td th:text="${friend.name}">Name</td>
+                <td th:text="${friend.email}">Email</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a th:href="@{/friends/add}">친구 등록 폼으로..</a>
+</body>
+</html>
