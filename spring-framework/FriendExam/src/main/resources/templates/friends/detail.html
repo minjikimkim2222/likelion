@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>특정 친구 조회</title>
+</head>
+<body>
+    <h1>특정 id에 속하는 친구 조회 페이지입니다 !!</h1>
+    <h2 th:text="${editFriend.name}">이름</h2>
+
+    <div>
+        <strong>Email : </strong> <span th:text="${editFriend.email}">이메일</span>
+    </div>
+
+    <a th:href="@{/friends}">친구 목록</a>
+    <a th:href="@{/friends/edit/{id}(id=${editFriend.id})}">수정</a>
+    <a th:href="@{/friends/delete/{id}(id=${editFriend.id})}">삭제</a>
+
+<!--    <form method="post" th:action="@{/friends/edit/{id}(id=${editFriend.id})}">-->
+<!--        <button type="submit">수정</button>-->
+<!--    </form>-->
+<!--    <form method="post" th:action="@{/friends/delete/{id}(id=${editFriend.id})}">-->
+<!--        <button type="submit">삭제</button>-->
+<!--    </form>-->
+</body>
+</html>

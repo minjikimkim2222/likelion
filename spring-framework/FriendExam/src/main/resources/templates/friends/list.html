@@ -19,12 +19,22 @@
         <tbody>
             <tr th:each="friend : ${friends}">
                 <td th:text="${friend.id}">ID</td>
-                <td th:text="${friend.name}">Name</td>
+                <td>
+                    <a th:href="@{/friends/{id} (id=${friend.id})}"  th:text="${friend.name}"></a> <!-- 유저 name에 링크를 걸어, 해당 유저페이지로 가께끔!!-->
+                </td>
                 <td th:text="${friend.email}">Email</td>
             </tr>
         </tbody>
     </table>
 
+    <!-- 현재 페이지가 어디에 있는지 알려주는 코드 -->
+    <div th:if="${friends.totalPages > 1}">
+        <ul>
+            <li th:each="i : ${#numbers.sequence(1, friends.totalPages)}">
+                <a th:href="@{/friends(page=${i})}" th:text="${i}"  ></a>
+            </li>
+        </ul>
+    </div>
     <a th:href="@{/friends/add}">친구 등록 폼으로..</a>
 </body>
 </html>

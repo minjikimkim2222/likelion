@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>친구 정보 수정</title>
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+    <title>친구 수정 페이지</title>
 </head>
 <body>
-    <h1>친구 정보 수정 페이지입니다 !!</h1>
+    <h1>친구 정보 수정페이지</h1>
 
-    <form th:action="@{/friends/add}" method="post" th:object="${friend}">
+    <form th:action="@{/friends/edit}" th:object="${friend}" method="post">
+        <input type="hidden" th:field="*{id}"> <!-- 중요한 정보는 hidden으로 가리면서, friend 모델객체에 id필드를 채울 수도 있다.-->
         <label for="name">Name : </label>
         <input id="name" type="text" th:field="*{name}" required />
         <br>
 
         <label for="email">Email : </label>
         <input id="email" type="email" th:field="*{email}" required />
-        <br><br>
+        <br>
 
-        <button type="submit">Submit</button>
+        <button type="submit" value="친구정보수정">친구정보수정</button>
     </form>
 </body>
 </html>
