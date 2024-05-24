@@ -1,0 +1,28 @@
+div.write a {
+    text-decoration: none;
+}
+
+td#line-deco a{
+    text-decoration: none;
+}
+
+div.content-title {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+
+    margin-bottom: 15px;
+    border-bottom: 1px solid  #b0b0b0; /* 연한 회색 색상 */
+
+}
+
+div.content-item {
+    padding: 5px;
+    margin: 10px;
+}
+
+div.border-custom {
+    border: 1px solid #b0b0b0;
+    width: 320px;
+    padding: 20px;
+}

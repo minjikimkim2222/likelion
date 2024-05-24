@@ -34,6 +34,8 @@ public class BoardController {
         Page<Board> boards = boardService.findAllBoardsWithPaging(pageable);
 
         model.addAttribute("boards", boards);
+        // 페이징 처리 중, 현재 페이지일 때 "active" 속성을 주기 위해..
+        model.addAttribute("currentPage", page);
         return "list";
     }
 
@@ -118,7 +120,7 @@ public class BoardController {
             LocalDateTime now = LocalDateTime.now();
             board.setCreated_at(now);
             board.setUpdated_at(now);
-            
+
             boardService.saveBoard(board);
             return "redirect:/list";
         } else {
