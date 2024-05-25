@@ -36,4 +36,6 @@ public class Board {
 
     @PastOrPresent(message = "updated_at은 현재 또는 과거 날짜여야 합니다.")
     private LocalDateTime updated_at;
+
+    private int likes;
 }

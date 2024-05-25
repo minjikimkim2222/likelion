@@ -50,4 +50,12 @@ public class BoardService {
     public void deleteBoard(int id){
         boardRepository.deleteById(id);
     }
+
+    // 좋아요 기능 증가
+    @Transactional
+    public void incrementLikes(int id){
+        Board board = findBoardById(id);
+        board.setLikes(board.getLikes() + 1); // 해당 id의 board의 like 필드 1 증가
+        saveBoard(board); // 해당 변경사항을 DB에 반영해야 함..
+    }
 }

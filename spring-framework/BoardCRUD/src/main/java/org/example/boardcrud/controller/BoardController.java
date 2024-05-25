@@ -22,7 +22,7 @@ import java.time.LocalDateTime;
 public class BoardController {
     private final BoardService boardService;
 
-    // 1. 게시글 등록 - /list
+    // 1. 게시글 조회 - /list
     @GetMapping("/list")
     public String showBoardList(Model model,
                                 @RequestParam(defaultValue = "1") int page,
@@ -130,4 +130,11 @@ public class BoardController {
         }
     }
 
+    // 좋아요 기능 추가
+    @PostMapping("/like")
+    public String likeBoard(@RequestParam("id") int id){
+        //System.out.println("id : " + id);
+        boardService.incrementLikes(id);
+        return "redirect:/view?id=" + id;
+    }
 }

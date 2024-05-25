@@ -26,3 +26,22 @@ div.border-custom {
     width: 320px;
     padding: 20px;
 }
+
+ /*view의 list,edit,delete 버튼 - 좋아요 버튼 일렬로 */
+div.button-group {
+    float: left;
+}
+
+div#like-btn {
+    float: right;
+}
+
+/* 좋아요 버튼 */
+#like-btn button {
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    margin-right: 400px;
+    background-color: #99CCFF;
+    color: white;
+}
