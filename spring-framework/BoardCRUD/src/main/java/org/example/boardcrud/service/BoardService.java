@@ -22,15 +22,20 @@ public class BoardService {
     }
 
     // 페이징처리를 한 게시글 목록 조회
-    public Page<Board> findAllBoardsWithPaging(Pageable pageable){
-        // 게시글날짜 기준으로 desc - Page<Board> -- 여기서 Board 객체의 멤버변수를 기준으로 정렬
-        Pageable sortedByCreatedAt =
-                PageRequest.of(pageable.getPageNumber(), pageable.getPageSize(),
-                        Sort.by(Sort.Direction.DESC, "created_at"));
+//    public Page<Board> findAllBoardsWithPaging(Pageable pageable){
+//        // 게시글날짜 기준으로 desc - Page<Board> -- 여기서 Board 객체의 멤버변수를 기준으로 정렬
+//        Pageable sortedByCreatedAt =
+//                PageRequest.of(pageable.getPageNumber(), pageable.getPageSize(),
+//                        Sort.by(Sort.Direction.DESC, "created_at"));
+//
+//        // 정렬기준과 페이지번호,페이즈사이즈를 저장한 sortedByCreatedAt객체를 기준으로, select를 한다.
+//        return boardRepository.findAll(sortedByCreatedAt);
+//
+//    }
 
-        // 정렬기준과 페이지번호,페이즈사이즈를 저장한 sortedByCreatedAt객체를 기준으로, select를 한다.
-        return boardRepository.findAll(sortedByCreatedAt);
-
+    // 좋아요순, 최신순에 따른 페이징 처리
+    public Page<Board> findBoardsWithPagingAndSort(Pageable pageable){
+        return boardRepository.findAll(pageable);
     }
 
     // 게시글 상세 조회

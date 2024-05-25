@@ -9,6 +9,7 @@ import org.springframework.cglib.core.Local;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -25,17 +26,27 @@ public class BoardController {
     // 1. 게시글 조회 - /list
     @GetMapping("/list")
     public String showBoardList(Model model,
-                                @RequestParam(defaultValue = "1") int page,
-                                @RequestParam(defaultValue = "5") int pageSize){
-        //System.out.println("pageNumber : " + page);
-        // 페이징객체 select
-        Pageable pageable = PageRequest.of(page - 1, pageSize); // 페이지 번호 1부터 시작하도록 1을 빼줍니다.
+    @RequestParam(defaultValue = "1") int page,
+    @RequestParam(defaultValue = "5") int pageSize,
+    @RequestParam(defaultValue = "latest") String sort
+    ){
+        // 최신순, 좋아요순 정렬 처리
+        Pageable pageable;
 
-        Page<Board> boards = boardService.findAllBoardsWithPaging(pageable);
+        if (sort.equals("latest")){ // 최신순
+            pageable = PageRequest.of(page - 1,
+                    pageSize, Sort.by(Sort.Direction.DESC, "created_at"));
+        } else { // 좋아요순
+            pageable = PageRequest.of(page - 1,
+                    pageSize, Sort.by(Sort.Direction.DESC, "likes"));
+        }
+
+        Page<Board> boards = boardService.findBoardsWithPagingAndSort(pageable);
 
         model.addAttribute("boards", boards);
         // 페이징 처리 중, 현재 페이지일 때 "active" 속성을 주기 위해..
         model.addAttribute("currentPage", page);
+
         return "list";
     }
 
