@@ -1,8 +1,6 @@
 package org.example.springdatajpa2;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -122,5 +120,25 @@ class CustomerRepositoryTest {
 
             log.info("고객이름 : {}, 주문 수 : {}", customer.getName(), count);
          });
+    }
+
+    @BeforeAll
+    static void setUp(){
+        log.info("------- Before All");
+    }
+
+    @AfterAll
+    static void tearDown(){
+        log.info("------- After All");
+    }
+
+    @BeforeEach
+    void BeforeEach(){
+        log.info("------- Before each");
+    }
+
+    @AfterEach
+    void afterEach(){
+        log.info("------ After each");
     }
 }

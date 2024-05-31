@@ -1671,3 +1671,163 @@ Caused by: org.springframework.data.mapping.PropertyReferenceException: No prope
 2024-05-30 15:50:50 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-05-30 15:50:50 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2024-05-30 15:50:50 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-05-31 11:13:48 [Test worker] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [org.example.springdatajpa2.CustomerRepositoryTest]: CustomerRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-31 11:13:48 [Test worker] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration org.example.springdatajpa2.Springdatajpa2Application for test class org.example.springdatajpa2.CustomerRepositoryTest
+2024-05-31 11:13:48 [Test worker] INFO  o.e.s.CustomerRepositoryTest - ------- Before All
+2024-05-31 11:13:48 [Test worker] INFO  o.e.s.CustomerRepositoryTest - Starting CustomerRepositoryTest using Java 21.0.1 with PID 89633 (started by minji in /Users/minji/Desktop/likelion/jpa/springdatajpa)
+2024-05-31 11:13:48 [Test worker] INFO  o.e.s.CustomerRepositoryTest - No active profile set, falling back to 1 default profile: "default"
+2024-05-31 11:13:49 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-31 11:13:49 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 15 ms. Found 1 JPA repository interface.
+2024-05-31 11:13:49 [Test worker] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-31 11:13:49 [Test worker] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-05-31 11:13:49 [Test worker] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-05-31 11:13:49 [Test worker] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-31 11:13:49 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-05-31 11:13:49 [Test worker] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@69b37f5c
+2024-05-31 11:13:49 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-05-31 11:13:50 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-31 11:13:50 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-31 11:13:50 [Test worker] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-31 11:13:50 [Test worker] INFO  o.e.s.CustomerRepositoryTest - Started CustomerRepositoryTest in 1.798 seconds (process running for 2.31)
+2024-05-31 11:13:50 [Test worker] INFO  o.e.s.CustomerRepositoryTest - ------- Before each
+2024-05-31 11:13:50 [Test worker] INFO  o.e.s.CustomerRepositoryTest - ------ After each
+2024-05-31 11:13:50 [Test worker] INFO  o.e.s.CustomerRepositoryTest - ------- After All
+2024-05-31 11:13:51 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-31 11:13:51 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-05-31 11:13:51 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-05-31 11:15:00 [Test worker] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [org.example.springdatajpa2.CustomerRepositoryTest]: CustomerRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-31 11:15:00 [Test worker] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration org.example.springdatajpa2.Springdatajpa2Application for test class org.example.springdatajpa2.CustomerRepositoryTest
+2024-05-31 11:15:00 [Test worker] INFO  o.e.s.CustomerRepositoryTest - ------- Before All
+2024-05-31 11:15:00 [Test worker] INFO  o.e.s.CustomerRepositoryTest - Starting CustomerRepositoryTest using Java 21.0.1 with PID 89653 (started by minji in /Users/minji/Desktop/likelion/jpa/springdatajpa)
+2024-05-31 11:15:00 [Test worker] INFO  o.e.s.CustomerRepositoryTest - No active profile set, falling back to 1 default profile: "default"
+2024-05-31 11:15:00 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-31 11:15:00 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 18 ms. Found 1 JPA repository interface.
+2024-05-31 11:15:00 [Test worker] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-31 11:15:00 [Test worker] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-05-31 11:15:00 [Test worker] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-05-31 11:15:01 [Test worker] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-31 11:15:01 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-05-31 11:15:01 [Test worker] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1a5b7394
+2024-05-31 11:15:01 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-05-31 11:15:01 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-31 11:15:01 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-31 11:15:01 [Test worker] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-31 11:15:02 [Test worker] INFO  o.e.s.CustomerRepositoryTest - Started CustomerRepositoryTest in 1.739 seconds (process running for 2.224)
+2024-05-31 11:15:02 [Test worker] INFO  o.e.s.CustomerRepositoryTest - ------- Before each
+2024-05-31 11:15:02 [Test worker] INFO  o.e.s.CustomerRepositoryTest - ------ After each
+2024-05-31 11:15:02 [Test worker] INFO  o.e.s.CustomerRepositoryTest - ------- Before each
+2024-05-31 11:15:02 [Test worker] INFO  o.e.s.CustomerRepositoryTest - customer name : 홍길동
+2024-05-31 11:15:02 [Test worker] INFO  o.e.s.CustomerRepositoryTest - ------ After each
+2024-05-31 11:15:02 [Test worker] INFO  o.e.s.CustomerRepositoryTest - ------- Before each
+2024-05-31 11:15:02 [Test worker] INFO  o.e.s.CustomerRepositoryTest - ------ After each
+2024-05-31 11:15:02 [Test worker] INFO  o.e.s.CustomerRepositoryTest - ------- Before each
+2024-05-31 11:15:02 [Test worker] INFO  o.e.s.CustomerRepositoryTest - ------ After each
+2024-05-31 11:15:02 [Test worker] INFO  o.e.s.CustomerRepositoryTest - ------- Before each
+2024-05-31 11:15:02 [Test worker] INFO  o.e.s.CustomerRepositoryTest - ------ After each
+2024-05-31 11:15:02 [Test worker] INFO  o.e.s.CustomerRepositoryTest - ------- Before each
+2024-05-31 11:15:02 [Test worker] INFO  o.e.s.CustomerRepositoryTest - !! save test !!
+2024-05-31 11:15:02 [Test worker] INFO  o.e.s.CustomerRepositoryTest - ------ After each
+2024-05-31 11:15:02 [Test worker] INFO  o.e.s.CustomerRepositoryTest - ------- Before each
+2024-05-31 11:15:02 [Test worker] INFO  o.e.s.CustomerRepositoryTest - ------ After each
+2024-05-31 11:15:02 [Test worker] INFO  o.e.s.CustomerRepositoryTest - ------- Before each
+2024-05-31 11:15:02 [Test worker] INFO  o.e.s.CustomerRepositoryTest - 고객이름 : 홍길동, 주문 수 : 2
+2024-05-31 11:15:02 [Test worker] INFO  o.e.s.CustomerRepositoryTest - 고객이름 : 김철수, 주문 수 : 2
+2024-05-31 11:15:02 [Test worker] INFO  o.e.s.CustomerRepositoryTest - 고객이름 : 이영희, 주문 수 : 1
+2024-05-31 11:15:02 [Test worker] INFO  o.e.s.CustomerRepositoryTest - 고객이름 : 박민수, 주문 수 : 1
+2024-05-31 11:15:02 [Test worker] INFO  o.e.s.CustomerRepositoryTest - 고객이름 : 최지현, 주문 수 : 1
+2024-05-31 11:15:02 [Test worker] INFO  o.e.s.CustomerRepositoryTest - 고객이름 : 정수현, 주문 수 : 1
+2024-05-31 11:15:02 [Test worker] INFO  o.e.s.CustomerRepositoryTest - 고객이름 : 강지훈, 주문 수 : 1
+2024-05-31 11:15:02 [Test worker] INFO  o.e.s.CustomerRepositoryTest - 고객이름 : 윤서준, 주문 수 : 1
+2024-05-31 11:15:02 [Test worker] INFO  o.e.s.CustomerRepositoryTest - 고객이름 : 오지영, 주문 수 : 0
+2024-05-31 11:15:02 [Test worker] INFO  o.e.s.CustomerRepositoryTest - 고객이름 : 임도연, 주문 수 : 0
+2024-05-31 11:15:02 [Test worker] INFO  o.e.s.CustomerRepositoryTest - ------ After each
+2024-05-31 11:15:02 [Test worker] INFO  o.e.s.CustomerRepositoryTest - ------- After All
+2024-05-31 11:15:02 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-31 11:15:02 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-05-31 11:15:02 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-05-31 11:35:36 [main] INFO  o.e.s.Springdatajpa03Application - Starting Springdatajpa03Application using Java 21.0.1 with PID 89805 (/Users/minji/Desktop/likelion/jpa/springdatajpa/build/classes/java/main started by minji in /Users/minji/Desktop/likelion/jpa/springdatajpa)
+2024-05-31 11:35:36 [main] INFO  o.e.s.Springdatajpa03Application - No active profile set, falling back to 1 default profile: "default"
+2024-05-31 11:35:36 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-31 11:35:36 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 14 ms. Found 1 JPA repository interface.
+2024-05-31 11:35:37 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-31 11:35:37 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-05-31 11:35:37 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-05-31 11:35:37 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-31 11:35:37 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-05-31 11:35:37 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4b4814d0
+2024-05-31 11:35:37 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-05-31 11:35:37 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-31 11:35:37 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-31 11:35:38 [main] INFO  o.e.s.Springdatajpa03Application - Started Springdatajpa03Application in 1.378 seconds (process running for 1.901)
+2024-05-31 11:35:38 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-31 11:35:38 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-05-31 11:35:38 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-05-31 11:49:26 [Test worker] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [org.example.springdatajpa3.UserRepositoryNativeQueryTest]: UserRepositoryNativeQueryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-31 11:49:26 [Test worker] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration org.example.springdatajpa3.Springdatajpa03Application for test class org.example.springdatajpa3.UserRepositoryNativeQueryTest
+2024-05-31 11:49:26 [Test worker] INFO  o.e.s.UserRepositoryNativeQueryTest - Starting UserRepositoryNativeQueryTest using Java 21.0.1 with PID 89878 (started by minji in /Users/minji/Desktop/likelion/jpa/springdatajpa)
+2024-05-31 11:49:26 [Test worker] INFO  o.e.s.UserRepositoryNativeQueryTest - No active profile set, falling back to 1 default profile: "default"
+2024-05-31 11:49:26 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-31 11:49:26 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 14 ms. Found 1 JPA repository interface.
+2024-05-31 11:49:26 [Test worker] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-31 11:49:26 [Test worker] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-05-31 11:49:26 [Test worker] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-05-31 11:49:26 [Test worker] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-31 11:49:26 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-05-31 11:49:27 [Test worker] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1d3a03fe
+2024-05-31 11:49:27 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-05-31 11:49:27 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-31 11:49:27 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-31 11:49:27 [Test worker] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-31 11:49:27 [Test worker] INFO  o.e.s.UserRepositoryNativeQueryTest - Started UserRepositoryNativeQueryTest in 1.389 seconds (process running for 1.869)
+2024-05-31 11:49:28 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-31 11:49:28 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-05-31 11:49:28 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-05-31 11:54:39 [main] INFO  o.e.s.Springdatajpa03Application - Starting Springdatajpa03Application using Java 21.0.1 with PID 89905 (/Users/minji/Desktop/likelion/jpa/springdatajpa/build/classes/java/main started by minji in /Users/minji/Desktop/likelion/jpa/springdatajpa)
+2024-05-31 11:54:39 [main] INFO  o.e.s.Springdatajpa03Application - No active profile set, falling back to 1 default profile: "default"
+2024-05-31 11:54:39 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-31 11:54:39 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13 ms. Found 1 JPA repository interface.
+2024-05-31 11:54:39 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-31 11:54:39 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-05-31 11:54:39 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-05-31 11:54:39 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-31 11:54:39 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-05-31 11:54:39 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@370c7cc5
+2024-05-31 11:54:39 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-05-31 11:54:40 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-31 11:54:40 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-31 11:54:40 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-31 11:54:40 [main] INFO  o.e.s.Springdatajpa03Application - Started Springdatajpa03Application in 1.298 seconds (process running for 1.708)
+2024-05-31 11:54:40 [main] INFO  o.e.s.Springdatajpa03Application - 이메일로 찾은 사용자 : User(id=1, name=홍길동, email=hong@example.com)
+2024-05-31 11:54:40 [main] INFO  o.e.s.Springdatajpa03Application - 이메일로 찾은 사용자 : User(id=2, name=김철수, email=kim@example.com)
+2024-05-31 11:54:40 [main] INFO  o.e.s.Springdatajpa03Application - 이메일로 찾은 사용자 : User(id=3, name=이영희, email=lee@example.com)
+2024-05-31 11:54:40 [main] INFO  o.e.s.Springdatajpa03Application - 이메일로 찾은 사용자 : User(id=4, name=박민수, email=park@example.com)
+2024-05-31 11:54:40 [main] INFO  o.e.s.Springdatajpa03Application - 이메일로 찾은 사용자 : User(id=5, name=최지현, email=choi@example.com)
+2024-05-31 11:54:40 [main] INFO  o.e.s.Springdatajpa03Application - 이메일로 찾은 사용자 : User(id=6, name=정수현, email=jung@example.com)
+2024-05-31 11:54:40 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-31 11:54:40 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-05-31 11:54:40 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-05-31 11:59:15 [main] INFO  o.e.s.Springdatajpa03Application - Starting Springdatajpa03Application using Java 21.0.1 with PID 89948 (/Users/minji/Desktop/likelion/jpa/springdatajpa/build/classes/java/main started by minji in /Users/minji/Desktop/likelion/jpa/springdatajpa)
+2024-05-31 11:59:15 [main] INFO  o.e.s.Springdatajpa03Application - No active profile set, falling back to 1 default profile: "default"
+2024-05-31 11:59:15 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-31 11:59:15 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 16 ms. Found 1 JPA repository interface.
+2024-05-31 11:59:15 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-31 11:59:15 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-05-31 11:59:15 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-05-31 11:59:15 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-31 11:59:15 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-05-31 11:59:16 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@61b838f2
+2024-05-31 11:59:16 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-05-31 11:59:16 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-31 11:59:16 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-31 11:59:16 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-31 11:59:16 [main] INFO  o.e.s.Springdatajpa03Application - Started Springdatajpa03Application in 1.35 seconds (process running for 1.823)
+2024-05-31 11:59:16 [main] INFO  o.e.s.Springdatajpa03Application - 이메일로 찾은 사용자 : User(id=1, name=홍길동, email=hong@example.com)
+2024-05-31 11:59:16 [main] INFO  o.e.s.Springdatajpa03Application - 이메일로 찾은 사용자 : User(id=2, name=김철수, email=kim@example.com)
+2024-05-31 11:59:16 [main] INFO  o.e.s.Springdatajpa03Application - 이메일로 찾은 사용자 : User(id=3, name=이영희, email=lee@example.com)
+2024-05-31 11:59:16 [main] INFO  o.e.s.Springdatajpa03Application - 이메일로 찾은 사용자 : User(id=4, name=박민수, email=park@example.com)
+2024-05-31 11:59:16 [main] INFO  o.e.s.Springdatajpa03Application - 이메일로 찾은 사용자 : User(id=5, name=최지현, email=choi@example.com)
+2024-05-31 11:59:16 [main] INFO  o.e.s.Springdatajpa03Application - 이메일로 찾은 사용자 : User(id=6, name=정수현, email=jung@example.com)
+2024-05-31 11:59:16 [main] INFO  o.e.s.Springdatajpa03Application - 이름으로 찾은 사용자 : 홍길동, 이메일 : hong@example.com
+2024-05-31 11:59:16 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-31 11:59:16 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-05-31 11:59:16 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

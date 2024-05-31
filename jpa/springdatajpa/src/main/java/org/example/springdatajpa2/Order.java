@@ -19,6 +19,7 @@ public class Order {
     private String product;
 
     private LocalDate date;
+
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
