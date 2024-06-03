@@ -1,0 +1,33 @@
+### GET /todos
+GET http://localhost:8080/api/todos
+Accept: application/json
+
+### GET /todos/{id}
+GET http://localhost:8080/api/todos/12
+Accept: application/json
+
+### POST /todos
+POST http://localhost:8080/api/todos
+Content-Type: application/json
+
+{
+  "todo": ".http 테스트"
+}
+
+### PATCH 요청
+PATCH http://localhost:8080/api/todos/19
+Accept: application/json
+
+### PUT 요청 -- 전체 todo 고치기
+PUT http://localhost:8080/api/todos
+Content-Type: application/json
+
+{
+  "id": 19,
+  "todo": "PUT method test",
+  "done": true
+}
+
+### DELETE 요청
+DELETE http://localhost:8080/api/todos/20
+Accept: text/xml

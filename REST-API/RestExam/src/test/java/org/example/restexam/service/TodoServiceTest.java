@@ -60,9 +60,33 @@ class TodoServiceTest {
 
     @Test
     void updateTodo() {
+        // 새로운 Todo를 추가합니다.
+        Todo addedTodo = todoService.addTodo("original Todo");
+        Long id = addedTodo.getId();
+
+        log.info("Before update - addedTodo: {}", addedTodo);
+
+        // 업데이트할 정보를 가진 새로운 Todo 객체를 생성합니다.
+        Todo updatedTodoInfo = new Todo();
+        updatedTodoInfo.setId(id);
+        updatedTodoInfo.setTodo("updated Todo");
+        updatedTodoInfo.setDone(true);
+
+        // Todo를 업데이트합니다.
+        Todo updatedTodo = todoService.updateTodo(updatedTodoInfo);
+        log.info("After update - updatedTodo: {}", updatedTodo);
+
+        // 데이터베이스에서 업데이트된 Todo를 다시 조회합니다.
+        Todo foundUpdatedTodo = todoService.getTodoById(id);
+
+        assertNotNull(foundUpdatedTodo);
+        assertEquals("updated Todo", foundUpdatedTodo.getTodo());
+        assertTrue(foundUpdatedTodo.isDone());
+
     }
 
     @Test
     void deleteTodo() {
+
     }
 }

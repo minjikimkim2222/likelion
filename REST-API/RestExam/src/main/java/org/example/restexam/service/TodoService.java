@@ -51,17 +51,28 @@ public class TodoService {
 
     @Transactional
     public Todo updateTodo(Todo todo){ // id에 해당하는 투두 정보를 바꾸고 싶어요
-        Todo updatedTodo = getTodoById(todo.getId());
+        Todo updatedTodo = null;
 
-        if (updatedTodo != null) {
+        try {
+            updatedTodo = todoRepository.findById(todo.getId()).orElseThrow();
             updatedTodo.setTodo(todo.getTodo());
             updatedTodo.setDone(todo.isDone());
+            todoRepository.save(updatedTodo); // save까지 해야!!
+
+        } catch (Exception e){
+            System.out.println(e.getMessage());
         }
 
-        return todoRepository.save(updatedTodo);
+        return updatedTodo;
     }
 
     public void deleteTodo(Long id){ // id에 해당하는 투두 삭제
-        todoRepository.deleteById(id);
+        Optional<Todo> findTodo = todoRepository.findById(id);
+
+        if (findTodo.isEmpty()){
+            return ; // 찾는 투두가 없음
+        } else {
+            todoRepository.deleteById(id);
+        }
     }
 }
