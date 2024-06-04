@@ -1,0 +1,23 @@
+### POST
+POST http://localhost:8080/api/memos
+Content-Type: application/json
+
+{
+  "content": "memo2"
+}
+
+### GET
+GET http://localhost:8080/api/memos/1
+Accept: application/json
+
+### PUT
+PUT http://localhost:8080/api/memos/1
+Content-Type: application/json
+
+{
+  "content": "1번 메모 수정"
+}
+
+### DELETE
+DELETE http://localhost:8080/api/memos/1
+Accept: application/json
