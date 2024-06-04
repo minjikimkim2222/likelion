@@ -1,0 +1,48 @@
+### POST
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "delete test",
+  "price": 1000
+}
+
+### POST
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "id": 4,
+  "name": "product1 - 궁금해서",
+  "price": "1000"
+}
+
+### GET
+GET http://localhost:8080/api/products/1
+Accept: application/json
+
+### GET
+GET http://localhost:8080/api/products/4
+Accept: application/json
+
+### GET -- 넣어둔 id : 4는 결국 ProductController에서 ++1로 설정됨!
+GET http://localhost:8080/api/products/2
+Accept: application/json
+
+### PUT
+PUT http://localhost:8080/api/products/1
+Content-Type: application/json
+
+{
+  "id" : 4,
+  "name": "product1 -> update",
+  "price": 2000.0
+}
+
+### DELETE
+DELETE http://localhost:8080/api/products/2
+Accept: application/json
+
+### Get all products
+GET http://localhost:8080/api/products
+Accept: application/json
