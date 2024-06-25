@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: Filterexam
+
+
+  datasource:
+    url: jdbc:mysql://localhost:3307/hr
+    username: minjiki2
+    password: minjiki1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
