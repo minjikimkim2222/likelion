@@ -67,13 +67,13 @@ public class UserController {
 
     @GetMapping("/info")
     public String info(){
-        User user = UserContext.getUser();
-        String auth = user.getUsername();
-
-        if (user != null && user.getUsername() != null) {
+//        User user = UserContext.getUser();
+//        String auth = user.getUsername();
+//
+//        if (user != null && user.getUsername() != null) {
             return "info";
-        }
-
-        return "redirect:/loginform";
+//        }
+//
+//        return "redirect:/loginform";
     }
 }

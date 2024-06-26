@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: SecurityExam
+
+  security:
+    user:
+      name: minjiki2
+      password: 1234
