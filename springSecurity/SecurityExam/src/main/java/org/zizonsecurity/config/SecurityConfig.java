@@ -54,8 +54,12 @@ public class SecurityConfig {
                         .permitAll()
                 )
                 .sessionManagement(sessionManagment -> sessionManagment
-                        .maximumSessions(1) // -- 세션 허용 개수
-                        .maxSessionsPreventsLogin(true) // -- 후에 로그인한 곳에서 세션 종료시키게 설정
+                        .maximumSessions(1) // -- 세션 허용 개수 (동시 접속 허용 개수)
+                        .maxSessionsPreventsLogin(true) // -- 동시 로그인 차단
+                        /*
+                            default (false) - 먼저 로그인한 사용자 차단
+                            true - 두번째 로그인한 사용자 차단 (허용개수에 따라 다름, 나중에 로그인한 사용자 차단)
+                         */
                 );
         return http.build();
     }
