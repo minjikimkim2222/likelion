@@ -19,4 +19,4 @@
 4. 스프링 시큐리티, 추가설정 커스터마이징 (SecurityConfig)
     - formLogin 시큐리티디폴트제공 / 사용자 커스터마이징
     - 스프링시큐리티에서 인증에 성공하면 Authentication 객체가 생성되는데, 이 객체는 현재 사용자에 대한 인증정보를 가짐.
-        이 Authentication 객체는 Thread-Local 저장소인 SecurityContext에 저장되어, 요처암다 다르게 관리됨 !!
+        이 Authentication 객체는 Thread-Local 저장소인 SecurityContext에 저장되어, 요청마다 다르게 관리됨 !!

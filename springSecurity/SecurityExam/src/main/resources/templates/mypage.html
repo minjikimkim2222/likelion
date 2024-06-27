@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>mypage</title>
+</head>
+<body>
+    <h1>My page</h1>
+    <div sec:authorize="isAuthenticated()">
+        <!-- 인증된 사용자라면, 필요부분 구현-->
+        <p>인증된 사용자입니다. (로그인되었습니다.)</p>
+        <div>
+            <p>안녕하세요. <span sec:authentication="name"></span> 님 !!</p>
+            <p>당신의 role은 : <span sec:authentication="principal.authorities"></span></p>
+            <br>
+            <p>상세 정보 ::</p>
+            <ul>
+                <li>사용자 이름 : <span sec:authentication="principal.username"></span></li>
+                <li>계정 만료 여부 : <span sec:authentication="principal.accountNonExpired"></span></li>
+                <li>계정 잠김 여부 : <span sec:authentication="principal.accountNonLocked"></span></li>
+                <li>자격 증명 여부 : <span sec:authentication="principal.credentialsNonExpired"></span></li>
+                <li>활성부 여부 : <span sec:authentication="principal.enabled"></span></li>
+            </ul>
+        </div>
+    </div>
+    <div sec:authorize="!isAuthenticated()">
+        <!-- 인증되지 않은 사용자라면, 필요부분 구현-->
+        <p>로그인되지 않았습니다.</p>
+        <a th:href="@{/login}">로그인해주세요 ^^</a>
+    </div>
+</body>
+</html>

@@ -2,7 +2,21 @@ spring:
   application:
     name: SecurityExam
 
-  security:
-    user:
-      name: minjiki2
-      password: 1234
+  # security:
+  #   user:
+  #     name: minjiki2
+  #     password: 1234
+
+  datasource:
+    url: jdbc:mysql://localhost:3307/hr
+    username: minjiki2
+    password: minjiki1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect

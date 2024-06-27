@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div sec:authorize="isAuthenticated()">
+        <!-- 인증된 사용자(로그인)라면, 필요부분 구현-->
+        <p>안녕하세요. <span sec:authentication="name"></span> 님 !! </p>
+        <br>
+        <a href="/info">내 정보보기</a>
+        <a href="/logout">로그아웃</a>
+    </div>
+
+    <div sec:authorize="isAnonymous()">
+        <!-- 익명사용자 (로그인(인증)이후 초기화되는 Authentiaction가 null) 의 경우 -->
+        <a href="/loginform">로그인</a>
+    </div>
+</body>
+</html>
