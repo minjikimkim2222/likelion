@@ -7,8 +7,10 @@ import org.jwtExam.repository.RoleRepository;
 import org.jwtExam.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -29,7 +31,13 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    @Transactional(readOnly = true)
     public User findByUsername(String username){
         return userRepository.findByUsername(username);
+    }
+
+    @Transactional(readOnly = true)
+    public Optional<User> findUserById(Long id){
+        return userRepository.findById(id);
     }
 }

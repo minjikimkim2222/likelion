@@ -5,3 +5,22 @@ Content-Type: application/json
   "username": "id1",
   "password": "pw1"
 }
+
+### 인증, 인가 테스트 -- /api/ 를 추가해 RestController 인식 가능
+### -- 로그인된 accessToken을 쿠키값으로 주면서 요청해보기
+
+GET http://localhost:8080/api/authtest
+Cookie: accessToken=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlbWFpbDFAZXhhbS5jb20iLCJyb2xlcyI6WyJVU0VSIl0sInVzZXJJZCI6MSwibmFtZSI6Im5hbWUxIiwidXNlcm5hbWUiOiJpZDEiLCJpYXQiOjE3MTk4OTM1NjAsImV4cCI6MTcxOTg5MzYyMH0.AVyj8tDjRi2wSs0IVy_TtPLKqMp72g3KM7wuMsqtxZQ
+
+### -- 쿠키없이 테스트
+# @no-cookie-jar
+GET http://localhost:8080/api/authtest
+
+### Cookie말고, Authorization헤더에 Bearer 다음에 accesstoken 값 주기
+GET http://localhost:8080/api/authtest
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlbWFpbDFAZXhhbS5jb20iLCJyb2xlcyI6WyJVU0VSIl0sInVzZXJJZCI6MSwibmFtZSI6Im5hbWUxIiwidXNlcm5hbWUiOiJpZDEiLCJpYXQiOjE3MTk4OTU3NjUsImV4cCI6MTcxOTg5NTgyNX0.ubZ4FsJdyeYlDva6SCsfyK4dyuakiyr76OhnmZDwdxw
+
+
+### refreshToken 요청 -- 다시 갱신된 AccessToken
+POST http://localhost:8080/refreshToken
+Cookie: refreshToken=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlbWFpbDFAZXhhbS5jb20iLCJyb2xlcyI6WyJVU0VSIl0sInVzZXJJZCI6MSwibmFtZSI6Im5hbWUxIiwidXNlcm5hbWUiOiJpZDEiLCJpYXQiOjE3MTk4OTU3MzYsImV4cCI6MTcyMDUwMDUzNn0.30IficDN8OxIw6XefY6s75ocf47OusK_ZPpXk4TbKD8

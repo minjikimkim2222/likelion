@@ -1,6 +1,8 @@
 package org.jwtExam.controller;
 
+import io.jsonwebtoken.Claims;
 import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +18,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -91,5 +94,59 @@ public class UserApiController {
         httpServletResponse.addCookie(refreshTokenCookie);
 
         return new ResponseEntity(loginResponseDto, HttpStatus.OK);
+    }
+
+
+    @GetMapping("/api/authtest")
+    public String authTest(){
+        return "authTest";
+    }
+
+    @PostMapping("/refreshToken")
+    public ResponseEntity refreshToken(HttpServletRequest request, HttpServletResponse response){
+        // 1. '쿠키'로부터 refreshToken을 얻어온다 !
+        String refreshToken = null;
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if ("refreshToken".equals(cookie.getName())){
+                    refreshToken = cookie.getValue();
+                    break;
+                }
+            }
+        }
+
+        // 2-1. refreshToken이 없다면.. (오류로 응답.)
+        if (refreshToken == null){
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
+        // 2-2. refreshToken이 있다면..
+        // 3. 토큰으로부터 정보를 얻어온다.
+        Claims claims = jwtTokenizer.parseRefreshToken(refreshToken);
+        Long userId = Long.valueOf ((Integer)claims.get("userId"));
+
+        User user = userService.findUserById(userId).orElseThrow(() -> new IllegalArgumentException("사용자를 찾지 못했습니다."));
+        List<String> roles = (List<String>) claims.get("roles");
+
+        // 4. 3)을 토대로, accessToken 생성
+        String accessToken = jwtTokenizer.createAccessToken(user.getId(), user.getEmail(), user.getName(), user.getUsername(),
+                roles);
+
+        // 5. 쿠키에 accessToken을 담아, 응답에 넣어주기
+        Cookie accessTokenCookie = new Cookie("accessToken", accessToken);
+        accessTokenCookie.setHttpOnly(true);
+        accessTokenCookie.setPath("/");
+        accessTokenCookie.setMaxAge(Math.toIntExact(JwtTokenizer.ACCESS_TOKEN_EXPIRE_COUNT / 1000));
+
+        response.addCookie(accessTokenCookie);
+
+        UserLoginResponseDto userLoginResponseDto = UserLoginResponseDto.builder()
+                .accessToken(accessToken)
+                .refreshToken(refreshToken)
+                .name(user.getName())
+                .userId(user.getId())
+                .build();
+
+        return new ResponseEntity(userLoginResponseDto, HttpStatus.OK);
     }
 }

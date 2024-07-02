@@ -1,6 +1,9 @@
 package org.jwtExam.config;
 
 import lombok.RequiredArgsConstructor;
+import org.jwtExam.jwt.exception.CustomAuthenticationiEntryPoint;
+import org.jwtExam.jwt.filter.JwtAuthenticationFilter;
+import org.jwtExam.jwt.util.JwtTokenizer;
 import org.jwtExam.security.CustomUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,6 +14,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -26,14 +30,18 @@ import java.util.List;
 public class SecurityConfig {
 
     private final CustomUserDetailsService customUserDetailsService;
+    private final JwtTokenizer jwtTokenizer;
+    private final CustomAuthenticationiEntryPoint customAuthenticationiEntryPoint;
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/userregform", "/userreg", "/", "/login").permitAll() // -- 회원가입,로그인 페이지는 모두 다 접근 가능
+                        .requestMatchers("/userregform", "/userreg", "/", "/login", "refreshToken").permitAll() // -- 회원가입,로그인 페이지는 모두 다 접근 가능
                         .anyRequest().authenticated() // -- 모든 request에 대해서 '인증' 요구 !
                 )
+                // -- 우리가 설정한 필터가 적용이 될 것 !!
+                .addFilterBefore(new JwtAuthenticationFilter(jwtTokenizer), UsernamePasswordAuthenticationFilter.class)
               //  .formLogin(Customizer.withDefaults()) // 폼로그인 처리 - 스프링 시큐리티가 제공해주는 기본 설정 사용
                 .formLogin(form -> form.disable()) // 폼로그인 사용 X -- 대신 JWT 토큰 인증 사용할 것
                 .sessionManagement(httpSecuritySessionManagementConfigurer ->
@@ -44,7 +52,9 @@ public class SecurityConfig {
                 .httpBasic(httpSecurityHttpBasicConfigurer ->
                         httpSecurityHttpBasicConfigurer.disable()
                 )
-                .cors(cors -> cors.configurationSource(configurationSource())); // CORS 설정
+                .cors(cors -> cors.configurationSource(configurationSource())) // CORS 설정 (API로 접근했을 때, 어디까지 허용할래?)
+                .exceptionHandling(exception -> exception
+                        .authenticationEntryPoint(customAuthenticationiEntryPoint)); // 예외핸들러 설정
 
         return http.build();
     }

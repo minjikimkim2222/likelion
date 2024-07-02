@@ -25,7 +25,7 @@ public class JwtTokenizer {
     // 클라이언트가 만료된 Access Token을 서버에 보내면, 서버는 Refresh Token을 확인해, 새로운 Access Token을 발급함.
     // 보다 더 긴 유효기간.
 
-    public static Long ACCESS_TOKEN_EXPIRE_COUNT = 30 * 60 * 1000L; // 30분 -- accessToken 유지시간
+    public static Long ACCESS_TOKEN_EXPIRE_COUNT = 1 * 60 * 1000L; // 30분 -- accessToken 유지시간
 
     public static Long REFRESH_TOKEN_EXPIRE_COUNT =  7 * 24 * 60 * 60 * 1000L; // 7 days
 
